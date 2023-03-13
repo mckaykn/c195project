@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="">
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="pulled repo down">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195project/Controllers/LogInFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195project/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195project/loginform.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +23,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Downloads/mysql-connector-java-8.0.25/mysql-connector-java-8.0.25/src/legacy/java/com/mysql/jdbc/Driver.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/FruitsQuery.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/JDBC.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/mckay/Downloads/mysql-connector-java-8.0.25/mysql-connector-java-8.0.25/mysql-connector-java-8.0.25.jar",
+    "last_opened_file_path": "C:/Users/mckay/IdeaProjects/c482project",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -68,6 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1678341322531</updated>
     </task>
+    <task id="LOCAL-00001" summary="pulled repo down">
+      <created>1678668848404</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678668848404</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,29 +95,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java</url>
-          <line>24</line>
-          <properties class="nielson.c195projectmkn.Main" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/JDBC.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pulled repo down" />
+    <option name="LAST_COMMIT_MESSAGE" value="pulled repo down" />
   </component>
 </project>
