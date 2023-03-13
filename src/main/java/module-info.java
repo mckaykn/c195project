@@ -1,10 +1,12 @@
-module nielson.c195project {
+module nielson.c195projectmkn {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires mysql.connector.java;
 
 
-    opens nielson.c195project to javafx.fxml;
-    exports nielson.c195project;
-    exports nielson.c195project.Controllers;
-    opens nielson.c195project.Controllers to javafx.fxml;
+    opens nielson.c195projectmkn to javafx.fxml;
+    exports nielson.c195projectmkn;
+    exports nielson.c195projectmkn.Controllers;
+    opens nielson.c195projectmkn.Controllers to javafx.fxml;
 }
