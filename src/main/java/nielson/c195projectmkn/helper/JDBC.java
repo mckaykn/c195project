@@ -12,8 +12,8 @@ public abstract class JDBC {
     private static final String databaseName = "client_schedule";
     private static final String jdbcURL = protocol + vendor + location + databaseName + "?connectionTimeZone = SERVER";
     private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String userName = "root";
-    private static final String password = "Dipstick1745511";
+    private static final String userName = "sqlUser";
+    private static final String password = "Passw0rd!";
     public static Connection connection;
 
     public static void openConnection(){

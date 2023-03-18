@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public abstract class FruitsQuery {
+public abstract class ClientQuery {
 
     public static int insert(String fruitName, int colorId) throws SQLException {
         String sql = "INSERT INTO FRUITS (Fruit_Name, Color_ID) VALUES(?, ?)";
@@ -34,14 +34,14 @@ public abstract class FruitsQuery {
     }
 
     public static void select() throws SQLException {
-        String sql = "SELECT * FROM FRUITS";
+        String sql = "SELECT * FROM APPOINTMENTS";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
-            int fruitId = rs.getInt("Fruit_ID");
-            String fruitName = rs.getString("Fruit_Name");
-            System.out.print(fruitId + "|");
-            System.out.print(fruitName + "\n");
+            int AppointmentID = rs.getInt("Appointment_ID");
+            String AppointmentType = rs.getString("Type");
+            System.out.print(AppointmentID + "|");
+            System.out.print(AppointmentType + "\n");
         }
 
     }

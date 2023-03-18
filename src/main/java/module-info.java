@@ -3,6 +3,7 @@ module nielson.c195projectmkn {
     requires javafx.fxml;
     requires java.sql;
     requires mysql.connector.java;
+    requires javafx.graphics;
 
 
     opens nielson.c195projectmkn to javafx.fxml;
