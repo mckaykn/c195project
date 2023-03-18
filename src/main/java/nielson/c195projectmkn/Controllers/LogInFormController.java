@@ -1,14 +1,20 @@
 package nielson.c195projectmkn.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import nielson.c195projectmkn.Models.User;
+import nielson.c195projectmkn.helper.ClientQuery;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LogInFormController implements Initializable {
@@ -23,12 +29,31 @@ public class LogInFormController implements Initializable {
     private PasswordField passWordTextField;
     @FXML
     private Label locationDisplayLabel;
+    @FXML
+    private Button logInButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         String countryLabel = ZoneId.systemDefault().toString();
         locationDisplayLabel.setText(countryLabel);
     }
 
+    @FXML
+    private void OnClickLogIn(ActionEvent actionEvent) throws SQLException {
+        String userName = userNameTextField.getText();
+        String password = passWordTextField.getText();
+        User user = ClientQuery.getUser(userName);
+        if (user != null){
+            if (Objects.equals(password, user.getPassword())){
+                System.out.println("Log In Successful!");
+            }
+            else {
+                System.out.println("Log in Not Successful!");
+            }
+        }
+        else {
+            System.out.println("Log in Not Successful!");
+        }
+
+    }
 }
