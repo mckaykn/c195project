@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created User Class. Made functioning log in button.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Countries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/LogInForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679121680639</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract.">
+      <created>1679296927478</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679296927478</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +145,7 @@
     <MESSAGE value="pulled repo down" />
     <MESSAGE value="Created ZoneId Label" />
     <MESSAGE value="Created User Class. Made functioning log in button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created User Class. Made functioning log in button." />
+    <MESSAGE value="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract." />
   </component>
 </project>
