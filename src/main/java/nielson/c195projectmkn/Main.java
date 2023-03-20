@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginform.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogInForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 300, 250);
         stage.setTitle("Log-In Form");
         stage.setScene(scene);

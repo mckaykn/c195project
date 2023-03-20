@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created ZoneId Label">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" afterDir="false" />
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created User Class. Made functioning log in button.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Countries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/LogInForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -33,7 +37,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/JDBC.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/loginform.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/LogInForm.fxml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,22 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mckay/.m2/repository/org/openjfx/javafx-controls/17.0.2/javafx-controls-17.0.2-win.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_directory_selection": "C:/Users/mckay/IdeaProjects/c195projectmkn/src/main/resources/nielson/c195projectmkn",
+    "last_opened_file_path": "C:/Users/mckay/.m2/repository/org/openjfx/javafx-controls/17.0.2/javafx-controls-17.0.2-win.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mckay\IdeaProjects\c195projectmkn\src\main\java\nielson\c195projectmkn\Controllers" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -110,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679108269017</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created User Class. Made functioning log in button.">
+      <created>1679121680639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679121680639</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,17 +144,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pulled repo down" />
     <MESSAGE value="Created ZoneId Label" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created ZoneId Label" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Created User Class. Made functioning log in button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created User Class. Made functioning log in button." />
   </component>
 </project>
