@@ -32,12 +32,12 @@
         </font>
     </Label>
     <HBox layoutX="513.0" layoutY="500.0" prefHeight="30.0" prefWidth="422.0">
-        <Button fx:id="addCustomerButton" mnemonicParsing="false" onAction="#onClickAddCustomer" text="Add Customer">
+        <Button fx:id="addCustomerButton" mnemonicParsing="false" onAction="#onClickGoToAddCustomerForm" text="Add Customer">
             <HBox.margin>
                 <Insets right="10.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="editCustomerButton" mnemonicParsing="false" onAction="#OnClickEditCustomer" text="Edit Customer">
+        <Button fx:id="editCustomerButton" mnemonicParsing="false" onAction="#OnClickGoToEditCustomerForm" text="Edit Customer">
             <HBox.margin>
                 <Insets right="90.0" />
             </HBox.margin>
@@ -45,23 +45,22 @@
         <Button fx:id="deleteCustomerButton" mnemonicParsing="false" onAction="#OnClickDeletePart" text="Delete Customer" />
     </HBox>
     <HBox layoutX="507.0" layoutY="944.0" prefHeight="30.0" prefWidth="434.0">
-      <children>
-           <Button fx:id="addAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenAddAppointment" prefHeight="25.0" prefWidth="131.0" text="Add Appointment">
-            <HBox.margin>
-               <Insets right="10.0" />
-            </HBox.margin>
-         </Button>
-           <Button fx:id="editAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenEditAppointment" prefHeight="25.0" prefWidth="142.0" text="Edit Appointment">
-            <HBox.margin>
-               <Insets right="45.0" />
-            </HBox.margin>
-         </Button>
-           <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#OnClickDeleteAppointment" prefHeight="25.0" prefWidth="148.0" text="Delete Appointment">
-            <HBox.margin>
-               <Insets right="10.0" />
-            </HBox.margin>
-         </Button>
-      </children></HBox>
+        <Button fx:id="addAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenAddAppointment" prefHeight="25.0" prefWidth="131.0" text="Add Appointment">
+         <HBox.margin>
+             <Insets right="10.0" />
+         </HBox.margin>
+        </Button>
+        <Button fx:id="editAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenEditAppointment" prefHeight="25.0" prefWidth="142.0" text="Edit Appointment">
+         <HBox.margin>
+             <Insets right="45.0" />
+         </HBox.margin>
+        </Button>
+        <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#OnClickDeleteAppointment" prefHeight="25.0" prefWidth="148.0" text="Delete Appointment">
+         <HBox.margin>
+             <Insets right="10.0" />
+         </HBox.margin>
+        </Button>
+    </HBox>
     <Label layoutX="43.0" layoutY="33.0" prefHeight="27.0" prefWidth="269.0" text="Customer Records">
         <font>
             <Font name="System Bold" size="18.0" />
@@ -80,8 +79,8 @@
             <TableColumn fx:id="createdByColumn" prefWidth="81.0" text="Created By" />
             <TableColumn fx:id="lastUpdateColumn" prefWidth="87.0" text="Last Updated" />
             <TableColumn fx:id="appointmentsCustomerIdColumn" prefWidth="91.0" text="Customer ID" />
-            <TableColumn fx:id="appointmentsUserIdColumn" prefWidth="65.0" text="User ID" />
-            <TableColumn fx:id="appointmentsContactIdColumn" prefWidth="94.0" text="Contact ID" />
+            <TableColumn fx:id="appointmentsUserIdColumn" text="User ID" />
+            <TableColumn fx:id="appointmentsContactIdColumn" prefWidth="105.0" text="Contact ID" />
         </columns>
     </TableView>
     <Label fx:id="noCustomerFoundLabel" layoutX="175.0" layoutY="123.0" />

@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Contact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Division.java" afterDir="false" />
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddAppointmentForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddCustomerForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditCustomerForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Countries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679350221675</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created a Customer Record Stage with buttons. Finished all classes.">
+      <created>1679359841312</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679359841312</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +174,7 @@
     <MESSAGE value="Created ZoneId Label" />
     <MESSAGE value="Created User Class. Made functioning log in button." />
     <MESSAGE value="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract." />
+    <MESSAGE value="Created a Customer Record Stage with buttons. Finished all classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a Customer Record Stage with buttons. Finished all classes." />
   </component>
 </project>
