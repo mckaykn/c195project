@@ -1,25 +1,25 @@
 package nielson.c195projectmkn.Models;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
-public class Appointments {
-    private int id;
+public class Appointment {
+    private int ID;
     private String title;
     private String description;
     private String location;
     private String type;
-    private LocalDateTime start;
-    private LocalDateTime end;
-    private LocalDateTime createDate;
+    private Date start;
+    private Date end;
+    private Date createDate;
     private String createdBy;
-    private LocalDateTime lastUpdate;
+    private Date lastUpdate;
     private String lastUpdatedBy;
-    private int customerId;
-    private int userId;
-    private int contactId;
+    private Customer customerID;
+    private User userID;
+    private Contact contactID;
 
-    public Appointments(int id, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy, int customerId, int userId, int contactId) {
-        this.id = id;
+    public Appointment(int ID, String title, String description, String location, String type, Date start, Date end, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Customer customerID, User userID, Contact contactID) {
+        this.ID = ID;
         this.title = title;
         this.description = description;
         this.location = location;
@@ -30,13 +30,13 @@ public class Appointments {
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
-        this.customerId = customerId;
-        this.userId = userId;
-        this.contactId = contactId;
+        this.customerID = customerID;
+        this.userID = userID;
+        this.contactID = contactID;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
     public String getTitle() {
@@ -55,15 +55,15 @@ public class Appointments {
         return type;
     }
 
-    public LocalDateTime getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public LocalDateTime getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public LocalDateTime getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
@@ -71,7 +71,7 @@ public class Appointments {
         return createdBy;
     }
 
-    public LocalDateTime getLastUpdate() {
+    public Date getLastUpdate() {
         return lastUpdate;
     }
 
@@ -79,15 +79,15 @@ public class Appointments {
         return lastUpdatedBy;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public Customer getCustomerID() {
+        return customerID;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUserID() {
+        return userID;
     }
 
-    public int getContactId() {
-        return contactId;
+    public Contact getContactID() {
+        return contactID;
     }
 }

@@ -2,16 +2,16 @@ package nielson.c195projectmkn.Models;
 
 import java.util.Date;
 
-public class Countries {
-    private int id;
+public class Country {
+    private int ID;
     private String name;
     private Date createDate;
     private String createdBy;
     private Date lastUpdate;
     private String lastUpdatedBy;
 
-    public Countries(int id, String name, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy) {
-        this.id = id;
+    public Country(int ID, String name, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy) {
+        this.ID = ID;
         this.name = name;
         this.createDate = createDate;
         this.createdBy = createdBy;
@@ -20,7 +20,7 @@ public class Countries {
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getName() {

@@ -1,14 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="nielson.c195projectmkn.Controllers.CustomerRecordController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:id="CustomerRecordPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000" prefWidth="1000" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nielson.c195projectmkn.Controllers.CustomerRecordController">
+    <TableView fx:id="customersTable" layoutX="45.0" layoutY="109.0" prefHeight="375.0" prefWidth="900.0">
+        <columns>
+            <TableColumn fx:id="customerIdColumn" minWidth="20.0" prefWidth="20.0" text="ID" />
+            <TableColumn fx:id="customerNameColumn" minWidth="200.0" prefWidth="200.0" text="Name" />
+            <TableColumn fx:id="customerAddressColumn" minWidth="200.0" prefWidth="200.0" text="Address" />
+            <TableColumn fx:id="customerPostalCodeColumn" minWidth="75.0" prefWidth="75.0" text="Postal Code" />
+            <TableColumn fx:id="customerPhoneColumn" minWidth="80.0" prefWidth="100.0" text="Phone Number" />
+            <TableColumn fx:id="customerCreateDateColumn" minWidth="60.0" text="Create Date" />
+            <TableColumn fx:id="customerCreatedByColumn" prefWidth="70.0" text="Created By" />
+            <TableColumn fx:id="customerLastUpdatedColumn" prefWidth="82.0" text="Last Update" />
+            <TableColumn fx:id="customerDivisionColumn" prefWidth="71.0" text="Division" />
+        </columns>
+    </TableView>
+    <TextField fx:id="customerTableSearchBar" layoutX="122.0" layoutY="77.0" onKeyTyped="#OnKeyTypedSearchForCustomerByIDorString" promptText="Search by Name or ID" />
+    <TextField fx:id="appointmentTableSearchBar" layoutX="122.0" layoutY="527.0" onKeyTyped="#OnKeyTypedSearchForAppointmentByIDorString" promptText="Search by Name or ID" />
+    <Label layoutX="23.0" layoutY="80.0" prefHeight="20.0" prefWidth="72.0" text="Customers">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <Label layoutX="23.0" layoutY="529.0" text="Appointments">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <HBox layoutX="513.0" layoutY="500.0" prefHeight="30.0" prefWidth="422.0">
+        <Button fx:id="addCustomerButton" mnemonicParsing="false" onAction="#onClickAddCustomer" text="Add Customer">
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="editCustomerButton" mnemonicParsing="false" onAction="#OnClickEditCustomer" text="Edit Customer">
+            <HBox.margin>
+                <Insets right="90.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="deleteCustomerButton" mnemonicParsing="false" onAction="#OnClickDeletePart" text="Delete Customer" />
+    </HBox>
+    <HBox layoutX="507.0" layoutY="944.0" prefHeight="30.0" prefWidth="434.0">
+      <children>
+           <Button fx:id="addAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenAddAppointment" prefHeight="25.0" prefWidth="131.0" text="Add Appointment">
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </Button>
+           <Button fx:id="editAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenEditAppointment" prefHeight="25.0" prefWidth="142.0" text="Edit Appointment">
+            <HBox.margin>
+               <Insets right="45.0" />
+            </HBox.margin>
+         </Button>
+           <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#OnClickDeleteAppointment" prefHeight="25.0" prefWidth="148.0" text="Delete Appointment">
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </Button>
+      </children></HBox>
+    <Label layoutX="43.0" layoutY="33.0" prefHeight="27.0" prefWidth="269.0" text="Customer Records">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Button fx:id="exitButton" layoutX="951.0" layoutY="962.0" mnemonicParsing="false" onAction="#OnClickExitProgram" text="Exit" />
+    <TableView fx:id="appointmentsTable" layoutX="45.0" layoutY="560.0" prefHeight="375.0" prefWidth="900.0">
+        <columns>
+            <TableColumn fx:id="idColumn" minWidth="20.0" prefWidth="20.0" text="ID" />
+            <TableColumn fx:id="titleColumn" prefWidth="134.0" text="Title" />
+            <TableColumn fx:id="locationColumn" prefWidth="102.0" text="Location" />
+            <TableColumn fx:id="typeColumn" prefWidth="35.0" text="Type" />
+            <TableColumn fx:id="startColumn" prefWidth="41.0" text="Start" />
+            <TableColumn fx:id="endColumn" prefWidth="40.0" text="End" />
+            <TableColumn fx:id="createDateColumn" prefWidth="83.0" text="Created On" />
+            <TableColumn fx:id="createdByColumn" prefWidth="81.0" text="Created By" />
+            <TableColumn fx:id="lastUpdateColumn" prefWidth="87.0" text="Last Updated" />
+            <TableColumn fx:id="appointmentsCustomerIdColumn" prefWidth="91.0" text="Customer ID" />
+            <TableColumn fx:id="appointmentsUserIdColumn" prefWidth="65.0" text="User ID" />
+            <TableColumn fx:id="appointmentsContactIdColumn" prefWidth="94.0" text="Contact ID" />
+        </columns>
+    </TableView>
+    <Label fx:id="noCustomerFoundLabel" layoutX="175.0" layoutY="123.0" />
+    <Label fx:id="noAppointmentFoundLabel" layoutX="685.0" layoutY="123.0" />
+</Pane>

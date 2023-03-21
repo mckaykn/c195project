@@ -68,7 +68,7 @@ public class LogInFormController implements Initializable {
     private void OpenCustomerRecord() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
         stage.setTitle("Customer Record");
         stage.setScene(scene);
         stage.show();
