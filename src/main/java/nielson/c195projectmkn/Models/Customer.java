@@ -1,9 +1,11 @@
 package nielson.c195projectmkn.Models;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.Date;
 
     public class Customer {
-        private int ID;
+        private int id;
         private String customerName;
         private String address;
         private String postalCode;
@@ -11,11 +13,12 @@ import java.util.Date;
         private Date createDate;
         private String createdBy;
         private Date lastUpdate;
+        private String lastUpdatedBy;
         private Division division;
 
-        public Customer(int ID, String customerName, String address, String postalCode, String phone,
-                        Date createDate, String createdBy, Date lastUpdate, Division division) {
-            this.ID = ID;
+        public Customer(int id, String customerName, String address, String postalCode, String phone,
+                       Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Division division) {
+            this.id = id;
             this.customerName = customerName;
             this.address = address;
             this.postalCode = postalCode;
@@ -23,12 +26,14 @@ import java.util.Date;
             this.createDate = createDate;
             this.createdBy = createdBy;
             this.lastUpdate = lastUpdate;
+            this.lastUpdatedBy = lastUpdatedBy;
             this.division = division;
         }
 
-        public int getID() {
-            return ID;
+        public int getId() {
+            return id;
         }
+
 
         public String getCustomerName() {
             return customerName;
@@ -57,8 +62,14 @@ import java.util.Date;
         public Date getLastUpdate() {
             return lastUpdate;
         }
+        public String getLastUpdatedBy() {
+            return lastUpdatedBy;
+        }
 
         public Division getDivision() {
             return division;
+        }
+        public int getDivisionID(){
+            return division.getID();
         }
     }

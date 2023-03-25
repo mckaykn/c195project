@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import nielson.c195projectmkn.Main;
+import nielson.c195projectmkn.Models.Customer;
 import nielson.c195projectmkn.Models.User;
 import nielson.c195projectmkn.helper.ClientQuery;
 

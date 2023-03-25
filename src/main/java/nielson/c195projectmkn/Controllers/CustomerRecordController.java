@@ -1,22 +1,32 @@
 package nielson.c195projectmkn.Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import nielson.c195projectmkn.Main;
+import nielson.c195projectmkn.Models.Customer;
+import nielson.c195projectmkn.Models.Division;
+import nielson.c195projectmkn.helper.ClientQuery;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class CustomerRecordController {
+public class CustomerRecordController implements Initializable {
     @FXML
     private Pane CustomerRecordPane;
     @FXML
-    private TableView customersTable;
+    private TableView<Customer> customersTable;
     @FXML
     private TableColumn customerIdColumn;
     @FXML
@@ -83,6 +93,10 @@ public class CustomerRecordController {
     private Label noCustomerFoundLabel;
     @FXML
     private Label noAppointmentFoundLabel;
+    @FXML
+    private TableColumn customerLastUpdatedByColumn;
+    private ObservableList<Customer> customers;
+
 
     @FXML
     private void OnKeyTypedSearchForCustomerByIDorString(KeyEvent keyEvent) {
@@ -131,5 +145,24 @@ public class CustomerRecordController {
         //AddCustomerController addCustomer = fxmlLoader.getController();
         //addCustomer.SetInventory(this.inventory);
         window.setScene(scene);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            customers = ClientQuery.getAllCustomers();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        customerIdColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        customerNameColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerName"));
+        customerAddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        customerPostalCodeColumn.setCellValueFactory(new PropertyValueFactory<>("PostalCode"));
+        customerPhoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        customerCreateDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+        customerCreatedByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+        customerLastUpdatedColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
+        customerLastUpdatedByColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdatedBy"));
+        customerDivisionColumn.setCellValueFactory(new PropertyValueFactory<>("DivisionID"));
+        customersTable.setItems(customers);
     }
 }

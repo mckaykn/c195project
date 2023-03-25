@@ -10,4 +10,5 @@ module nielson.c195projectmkn {
     exports nielson.c195projectmkn;
     exports nielson.c195projectmkn.Controllers;
     opens nielson.c195projectmkn.Controllers to javafx.fxml;
+    opens nielson.c195projectmkn.Models to javafx.base;
 }
