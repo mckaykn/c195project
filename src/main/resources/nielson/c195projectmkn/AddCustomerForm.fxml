@@ -12,88 +12,68 @@
         </font>
     </Label>
     <VBox layoutX="150.0" layoutY="160.0" prefHeight="285.0" prefWidth="200.0">
-        <TextField fx:id="customerIDTextField" editable="false" prefHeight="25.0" prefWidth="70.0" promptText="ID auto-generated">
+        <TextField fx:id="customerNameTextField" layoutX="10.0" layoutY="10.0" prefHeight="25.0" promptText="John Doe">
             <VBox.margin>
-                <Insets top="2.0" />
-            </VBox.margin>
-        </TextField>
-        <TextField fx:id="customerNameTextField" layoutX="10.0" layoutY="10.0" prefHeight="25.0">
-            <VBox.margin>
-                <Insets />
+                <Insets top="13.0" />
             </VBox.margin>
         </TextField>
         <TextField fx:id="customerAddressTextField" layoutX="10.0" layoutY="35.0" prefHeight="25.0" promptText="i.e. 123 ABC Street, White Plains">
             <VBox.margin>
-                <Insets />
+                <Insets top="10.0" />
             </VBox.margin>
         </TextField>
         <TextField fx:id="customerPostalCodeTextField" layoutX="10.0" layoutY="85.0" prefHeight="25.0" promptText="12345">
             <VBox.margin>
-                <Insets />
+                <Insets top="10.0" />
             </VBox.margin>
         </TextField>
-      <ComboBox fx:id="customerDivisionComboBox1" layoutX="10.0" layoutY="212.0" prefHeight="25.0" prefWidth="100.0" />
-        <ComboBox fx:id="customerDivisionComboBox2" layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="100.0">
+      <ComboBox fx:id="customerCountryComboBox" layoutX="10.0" layoutY="212.0" onAction="#OnActionCountryComboBox" prefHeight="25.0" prefWidth="100.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></ComboBox>
+        <ComboBox fx:id="customerDivisionComboBox" layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="100.0">
             <VBox.margin>
-                <Insets />
+                <Insets top="10.0" />
             </VBox.margin>
         </ComboBox>
         <TextField fx:id="customerPhoneTextField" layoutX="10.0" layoutY="110.0" prefHeight="25.0">
             <VBox.margin>
-                <Insets />
+                <Insets top="12.0" />
             </VBox.margin>
         </TextField>
-      <TextField fx:id="createDateTextField" layoutX="10.0" layoutY="112.0" prefHeight="25.0" />
-      <TextField fx:id="createdByTextField" layoutX="10.0" layoutY="112.0" prefHeight="25.0" />
-      <TextField fx:id="lastUpdatedOnTextField" layoutX="10.0" layoutY="112.0" prefHeight="25.0" />
     </VBox>
     <VBox layoutX="25.0" layoutY="160.0" prefHeight="250.0" prefWidth="118.0">
-        <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="141.0" text="ID:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
         <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="127.0" text="Name:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="27.0" prefHeight="20.0" prefWidth="120.0" text="Address:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="44.0" prefHeight="20.0" prefWidth="136.0" text="Postal Code:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="126.0" text="Division:">
             <VBox.margin>
                 <Insets top="15.0" />
             </VBox.margin>
         </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="27.0" prefHeight="20.0" prefWidth="120.0" text="Address:">
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="44.0" prefHeight="20.0" prefWidth="136.0" text="Postal Code:">
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="126.0" text="Country:">
+            <VBox.margin>
+                <Insets top="15.0" />
+            </VBox.margin>
+        </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="115.0" prefHeight="20.0" prefWidth="126.0" text="Division/State:">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
         <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="61.0" prefHeight="20.0" prefWidth="126.0" text="Phone:">
             <VBox.margin>
-                <Insets top="20.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="121.0" text="Create Date:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="133.0" text="Created By:">
-            <VBox.margin>
-                <Insets top="5.0" />
-            </VBox.margin>
-        </Label>
-        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="119.0" text="Last Updated On:">
-            <VBox.margin>
-                <Insets top="5.0" />
+                <Insets top="15.0" />
             </VBox.margin>
         </Label>
     </VBox>
-    <Button fx:id="CreateCustomerButton" layoutX="201.0" layoutY="449.0" mnemonicParsing="false" onAction="#OnClickSaveCustomer" prefHeight="25.0" prefWidth="80.0" text="Create" />
-    <Button fx:id="backButton" layoutX="350.0" layoutY="449.0" mnemonicParsing="false" onAction="#OnClickReturnToMain" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
+    <Button fx:id="CreateCustomerButton" layoutX="201.0" layoutY="449.0" mnemonicParsing="false" onAction="#OnClickSaveCustomer" prefHeight="25.0" prefWidth="111.0" text="Create Customer" />
+    <Button fx:id="backButton" layoutX="350.0" layoutY="449.0" mnemonicParsing="false" onAction="#OnClickReturnToMain" prefHeight="25.0" prefWidth="57.0" text="Back" />
 </AnchorPane>

@@ -43,7 +43,7 @@
                 <Insets right="90.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="deleteCustomerButton" mnemonicParsing="false" onAction="#OnClickDeletePart" text="Delete Customer" />
+        <Button fx:id="deleteCustomerButton" mnemonicParsing="false" onAction="#OnClickDeleteCustomerBySelection" text="Delete Customer" />
     </HBox>
     <HBox layoutX="507.0" layoutY="944.0" prefHeight="30.0" prefWidth="434.0">
         <Button fx:id="addAppointmentButton" mnemonicParsing="false" onAction="#OnClickOpenAddAppointment" prefHeight="25.0" prefWidth="131.0" text="Add Appointment">
@@ -74,9 +74,9 @@
             <TableColumn fx:id="titleColumn" prefWidth="134.0" text="Title" />
             <TableColumn fx:id="locationColumn" prefWidth="102.0" text="Location" />
             <TableColumn fx:id="typeColumn" prefWidth="35.0" text="Type" />
-            <TableColumn fx:id="startColumn" prefWidth="41.0" text="Start" />
+            <TableColumn fx:id="startColumn" minWidth="50.0" prefWidth="-1.0" text="Start" />
             <TableColumn fx:id="endColumn" prefWidth="40.0" text="End" />
-            <TableColumn fx:id="createDateColumn" prefWidth="83.0" text="Created On" />
+            <TableColumn fx:id="createDateColumn" prefWidth="83.0" text="Create Date" />
             <TableColumn fx:id="createdByColumn" prefWidth="81.0" text="Created By" />
             <TableColumn fx:id="lastUpdateColumn" prefWidth="87.0" text="Last Updated" />
             <TableColumn fx:id="appointmentsCustomerIdColumn" prefWidth="91.0" text="Customer ID" />

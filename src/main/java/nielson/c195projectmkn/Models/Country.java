@@ -18,6 +18,10 @@ public class Country {
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
     }
+    @Override
+    public String toString(){
+        return name;
+    }
 
     public int getId() {
         return ID;

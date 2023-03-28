@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Created AddCustomer Form and the button to get to it. Also added the back button functionality. Created the EditCustomer form and added back button functionality.">
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Populated the customer tableview inside the customer record panel with data from the sql database.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/GuiUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Country.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddCustomerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddCustomerForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditCustomerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditCustomerForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +63,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/mckay/IdeaProjects/c195projectmkn/src/main/resources/nielson/c195projectmkn&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mckay/.m2/repository/org/openjfx/javafx-controls/17.0.2/javafx-controls-17.0.2-win.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mckay/IdeaProjects/c195projectmkn&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -159,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679441801198</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Populated the customer tableview inside the customer record panel with data from the sql database.">
+      <created>1679714024115</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679714024115</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,23 +191,29 @@
     <MESSAGE value="Created an error message to allow users to know when they're username or password are incorrect. Created a working stage change. Created a few more classes, need to assign if they are public, private, abstract." />
     <MESSAGE value="Created a Customer Record Stage with buttons. Finished all classes." />
     <MESSAGE value="Created AddCustomer Form and the button to get to it. Also added the back button functionality. Created the EditCustomer form and added back button functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created AddCustomer Form and the button to get to it. Also added the back button functionality. Created the EditCustomer form and added back button functionality." />
+    <MESSAGE value="Populated the customer tableview inside the customer record panel with data from the sql database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Populated the customer tableview inside the customer record panel with data from the sql database." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java</url>
-          <line>30</line>
+          <line>35</line>
           <properties field="customerIdColumn" class="nielson.c195projectmkn.Controllers.CustomerRecordController" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="newCustomer.division" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

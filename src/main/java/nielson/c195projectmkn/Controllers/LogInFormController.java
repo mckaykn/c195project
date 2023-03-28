@@ -38,6 +38,7 @@ public class LogInFormController implements Initializable {
     private Button logInButton;
     @FXML
     private Label LogInErrorDisplayLabel;
+    public User user = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,7 +50,7 @@ public class LogInFormController implements Initializable {
     private void OnClickLogIn(ActionEvent actionEvent) throws SQLException, IOException {
         String userName = userNameTextField.getText();
         String password = passWordTextField.getText();
-        User user = ClientQuery.getUser(userName);
+        user = ClientQuery.getUser(userName);
         if (user != null){
             if (Objects.equals(password, user.getPassword())){
                 System.out.println("Log In Successful!");
@@ -70,8 +71,10 @@ public class LogInFormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) logInButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
-        //CustomerRecordController addCustomer = fxmlLoader.getController();
-        //addCustomer.SetInventory(this.inventory);
+        CustomerRecordController customerRecord = fxmlLoader.getController();
+        customerRecord.setUser(user);
+        //LogInFormController logInForm = fxmlLoader.getController();
+        //logInForm.SetUser(this.inventory);
         window.setScene(scene);
     }
 }

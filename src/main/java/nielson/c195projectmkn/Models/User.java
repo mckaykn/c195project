@@ -36,7 +36,7 @@ public class User {
     /**
      * The user who last updated the user.
      */
-    private String lastUpdateBy;
+    private String lastUpdatedBy;
 
     /**
      * Creates a new User object with the given parameters.
@@ -47,16 +47,16 @@ public class User {
      * @param createDate   the date the user was created.
      * @param createdBy    the creator of the user.
      * @param lastUpdate   the date the user was last updated.
-     * @param lastUpdateBy the user who last updated the user.
+     * @param lastUpdatedBy the user who last updated the user.
      */
-    public User(int ID, String name, String password, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public User(int ID, String name, String password, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy) {
         this.ID = ID;
         this.name = name;
         this.password = password;
         this.createDate = createDate;
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
-        this.lastUpdateBy = lastUpdateBy;
+        this.lastUpdatedBy = lastUpdatedBy;
     }
 
     /**
@@ -155,4 +155,17 @@ public class User {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
+    public Date getLastUpdated(Date lastUpdate) {
+        return lastUpdate;
+    }
+    public void setLastUpdate(Date lastUpdate){
+        this.lastUpdate = lastUpdate;
+    }
+    public String getLastUpdatedBy(String lastUpdatedBy) {
+        return lastUpdatedBy;
+    }
+    public void setLastUpdatedBy(String lastUpdatedBy){
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
 }

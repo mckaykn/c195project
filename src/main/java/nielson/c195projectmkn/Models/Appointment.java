@@ -14,11 +14,11 @@ public class Appointment {
     private String createdBy;
     private Date lastUpdate;
     private String lastUpdatedBy;
-    private Customer customerID;
-    private User userID;
-    private Contact contactID;
+    private Customer customer;
+    private User user;
+    private Contact contact;
 
-    public Appointment(int ID, String title, String description, String location, String type, Date start, Date end, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Customer customerID, User userID, Contact contactID) {
+    public Appointment(int ID, String title, String description, String location, String type, Date start, Date end, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Customer customer, User user, Contact contact) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -30,9 +30,13 @@ public class Appointment {
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
-        this.customerID = customerID;
-        this.userID = userID;
-        this.contactID = contactID;
+        this.customer = customer;
+        this.user = user;
+        this.contact = contact;
+    }
+
+    public Appointment() {
+
     }
 
     public int getID() {
@@ -79,15 +83,20 @@ public class Appointment {
         return lastUpdatedBy;
     }
 
-    public Customer getCustomerID() {
-        return customerID;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public User getUserID() {
-        return userID;
+    public int getCustomerID() {
+        return customer.getId();
     }
 
-    public Contact getContactID() {
-        return contactID;
+    public int getUserID() {
+        return user.getID();
+    }
+
+    public int getContactID() {
+        return contact.getContactID();
     }
 }
+

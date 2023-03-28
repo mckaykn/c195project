@@ -2,6 +2,7 @@ package nielson.c195projectmkn.Models;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
     public class Customer {
@@ -10,14 +11,15 @@ import java.util.Date;
         private String address;
         private String postalCode;
         private String phone;
-        private Date createDate;
+        private LocalDateTime createDate;
         private String createdBy;
-        private Date lastUpdate;
+        private LocalDateTime lastUpdate;
         private String lastUpdatedBy;
         private Division division;
 
         public Customer(int id, String customerName, String address, String postalCode, String phone,
-                       Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Division division) {
+                       LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy, Division division) {
+            super();
             this.id = id;
             this.customerName = customerName;
             this.address = address;
@@ -51,7 +53,7 @@ import java.util.Date;
             return phone;
         }
 
-        public Date getCreateDate() {
+        public LocalDateTime getCreateDate() {
             return createDate;
         }
 
@@ -59,7 +61,7 @@ import java.util.Date;
             return createdBy;
         }
 
-        public Date getLastUpdate() {
+        public LocalDateTime getLastUpdate() {
             return lastUpdate;
         }
         public String getLastUpdatedBy() {
