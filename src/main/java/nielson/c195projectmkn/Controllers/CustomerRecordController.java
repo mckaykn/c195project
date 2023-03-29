@@ -118,7 +118,6 @@ public class CustomerRecordController implements Initializable {
     private int OnClickDeleteCustomerBySelection(ActionEvent actionEvent) throws SQLException {
         Customer selectedCustomer = customersTable.getSelectionModel().getSelectedItem();
         customers.remove(selectedCustomer);
-
         String sql = "DELETE FROM customers WHERE Customer_ID = ?";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ps.setInt(1, selectedCustomer.getId());
@@ -148,17 +147,22 @@ public class CustomerRecordController implements Initializable {
         Stage window = (Stage) addCustomerButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         AddCustomerController addCustomer = fxmlLoader.getController();
-        addCustomer.setUser(user);
+        addCustomer.setUser(this.user);
+        addCustomer.setCustomer(this.customer);
         window.setScene(scene);
     }
 
     @FXML
     private void OnClickGoToEditCustomerForm(ActionEvent actionEvent) throws IOException {
+        Customer selectedCustomer = customersTable.getSelectionModel().getSelectedItem();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditCustomerForm.fxml"));
         Stage window = (Stage) editCustomerButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
-        AddCustomerController addCustomer = fxmlLoader.getController();
-        addCustomer.setCustomer(this.customer);
+        EditCustomerController editCustomer = fxmlLoader.getController();
+        editCustomer.setCustomer(this.customer);
+        editCustomer.setUser(this.user);
+        editCustomer.loadCustomer(selectedCustomer);
+
         //AddCustomerController addCustomer = fxmlLoader.getController();
         //addCustomer.SetInventory(this.inventory);
         window.setScene(scene);

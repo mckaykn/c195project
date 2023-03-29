@@ -101,7 +101,7 @@ public class AddCustomerController implements Initializable {
 
         newCustomer = new Customer(0, customerNameTextField.getText(), customerAddressTextField.getText(),
                 customerPostalCodeTextField.getText(), customerPhoneTextField.getText(), currentDateTime,
-                user.getName(), lastUpdated, user.getName(), customerDivisionComboBox.getSelectionModel().getSelectedItem());
+                 user.getName(), lastUpdated, user.getName(), customerDivisionComboBox.getSelectionModel().getSelectedItem());
         ClientQuery.SaveCustomer(newCustomer);
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));

@@ -58,6 +58,10 @@ public class User {
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
     }
+    @Override
+    public String toString(){
+        return name;
+    }
 
     /**
      * Creates a new User object with default values.

@@ -21,6 +21,10 @@ import java.util.Date;
             this.lastUpdatedBy = lastUpdatedBy;
             this.country = country;
         }
+        @Override
+        public String toString(){
+            return name;
+        }
 
         public int getID() {
             return ID;

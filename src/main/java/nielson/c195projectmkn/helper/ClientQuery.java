@@ -308,16 +308,18 @@ public abstract class ClientQuery {
         }
         java.sql.Date sqlDate2 = new java.sql.Date(utilDate.getTime());
 
-        String sql = "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Create_Date, Last_Update, Last_Updated_By, Division_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Create_Date, Created_By, " +
+                "Last_Update, Last_Updated_By, Division_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ps.setString(1, newCustomer.getCustomerName());
         ps.setString(2, newCustomer.getAddress());
         ps.setString(3, newCustomer.getPostalCode());
         ps.setString(4, newCustomer.getPhone());
         ps.setDate(5, sqlDate);
-        ps.setDate(6, sqlDate2);
-        ps.setString(7, newCustomer.getLastUpdatedBy());
-        ps.setInt(8, newCustomer.getDivisionID());
+        ps.setString(6, newCustomer.getCreatedBy());
+        ps.setDate(7, sqlDate2);
+        ps.setString(8, newCustomer.getLastUpdatedBy());
+        ps.setInt(9, newCustomer.getDivisionID());
         ps.executeUpdate();
     }
 

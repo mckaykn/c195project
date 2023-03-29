@@ -1,11 +1,8 @@
 package nielson.c195projectmkn.Models;
 
-import javafx.beans.property.SimpleIntegerProperty;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 
-    public class Customer {
+public class Customer {
         private int id;
         private String customerName;
         private String address;
