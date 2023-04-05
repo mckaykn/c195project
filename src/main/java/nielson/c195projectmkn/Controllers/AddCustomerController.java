@@ -1,5 +1,6 @@
 package nielson.c195projectmkn.Controllers;
 
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,21 +19,15 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.Date;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddCustomerController implements Initializable {
-    @FXML
-    private TextField customerIDTextField;
     @FXML
     private TextField customerNameTextField;
     @FXML
@@ -42,20 +37,13 @@ public class AddCustomerController implements Initializable {
     @FXML
     private TextField customerPhoneTextField;
     @FXML
-    private Label customerCreateDateLabel;
-    @FXML
-    private Label customerCreatedByLabel;
-    @FXML
-    private Label customerLastUpdatedLabel;
-    @FXML
     private ComboBox<Division> customerDivisionComboBox;
     @FXML
     private Button CreateCustomerButton;
     @FXML
     private Button backButton;
     private Customer customer;
-    private LocalDateTime currentDateTime;
-    private LocalDateTime lastUpdated;
+    private Timestamp currentDateTime;
     private User user;
     private Customer newCustomer;
     @FXML
@@ -96,23 +84,19 @@ public class AddCustomerController implements Initializable {
 
     @FXML
     private void OnClickSaveCustomer(ActionEvent actionEvent) throws IOException, SQLException {
-        currentDateTime = LocalDateTime.now();
-        lastUpdated = LocalDateTime.now();
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date currentDate = calendar.getTime();
+        currentDateTime = new Timestamp(currentDate.getTime());
 
         newCustomer = new Customer(0, customerNameTextField.getText(), customerAddressTextField.getText(),
                 customerPostalCodeTextField.getText(), customerPhoneTextField.getText(), currentDateTime,
-                 user.getName(), lastUpdated, user.getName(), customerDivisionComboBox.getSelectionModel().getSelectedItem());
+                 user.getName(), currentDateTime, user.getName(), customerDivisionComboBox.getSelectionModel().getSelectedItem());
         ClientQuery.SaveCustomer(newCustomer);
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) CreateCustomerButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
         window.setScene(scene);
-        //CustomerRecordController customerRecordController = fxmlLoader.getController();
-        //customerRecordController.SetInventory(inventory);
-
-
-
     }
 
     @FXML
@@ -126,7 +110,7 @@ public class AddCustomerController implements Initializable {
     }
 
     @FXML
-    private void OnActionCountryComboBox(ActionEvent actionEvent) {
+    private void OnActionCountryComboBox(ActionEvent actionEvent) throws SQLException {
         customerDivisionComboBox.setCellFactory(new Callback<ListView<Division>, ListCell<Division>>() {
             @Override
             public ListCell<Division> call(ListView<Division> param) {
@@ -143,7 +127,11 @@ public class AddCustomerController implements Initializable {
                 };
             }
         });
-        //customerDivisionComboBox.getItems().
+        ObservableList<Division> divisionsFiltered = ClientQuery.getAllDivisions();
+
+        int countryId = customerCountryComboBox.getSelectionModel().getSelectedItem().getId();
+        customerDivisionComboBox.getItems().setAll(divisionsFiltered.stream().
+                filter(x -> x.getCountry().getId() == countryId).toList());
     }
 
     public void setUser(User user) {

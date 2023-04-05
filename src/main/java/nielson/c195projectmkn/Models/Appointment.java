@@ -1,5 +1,7 @@
 package nielson.c195projectmkn.Models;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Appointment {
@@ -8,17 +10,17 @@ public class Appointment {
     private String description;
     private String location;
     private String type;
-    private Date start;
-    private Date end;
-    private Date createDate;
+    private Timestamp start;
+    private Timestamp end;
+    private Timestamp createDate;
     private String createdBy;
-    private Date lastUpdate;
+    private Timestamp lastUpdate;
     private String lastUpdatedBy;
     private Customer customer;
     private User user;
     private Contact contact;
 
-    public Appointment(int ID, String title, String description, String location, String type, Date start, Date end, Date createDate, String createdBy, Date lastUpdate, String lastUpdatedBy, Customer customer, User user, Contact contact) {
+    public Appointment(int ID, String title, String description, String location, String type, Timestamp start, Timestamp end, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdatedBy, Customer customer, User user, Contact contact) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -59,15 +61,15 @@ public class Appointment {
         return type;
     }
 
-    public Date getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public Date getEnd() {
+    public Timestamp getEnd() {
         return end;
     }
 
-    public Date getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
@@ -75,7 +77,7 @@ public class Appointment {
         return createdBy;
     }
 
-    public Date getLastUpdate() {
+    public Timestamp getLastUpdate() {
         return lastUpdate;
     }
 
@@ -91,12 +93,20 @@ public class Appointment {
         return customer.getId();
     }
 
+    public String getContactName(){
+        return contact.getName();
+    }
+
     public int getUserID() {
         return user.getID();
     }
 
     public int getContactID() {
         return contact.getContactID();
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 }
 

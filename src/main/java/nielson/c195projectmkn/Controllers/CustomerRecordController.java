@@ -110,9 +110,6 @@ public class CustomerRecordController implements Initializable {
     private void OnKeyTypedSearchForCustomerByIDorString(KeyEvent keyEvent) {
     }
 
-    @FXML
-    private void OnKeyTypedSearchForAppointmentByIDorString(KeyEvent keyEvent) {
-    }
 
     @FXML
     private int OnClickDeleteCustomerBySelection(ActionEvent actionEvent) throws SQLException {
@@ -125,11 +122,13 @@ public class CustomerRecordController implements Initializable {
     }
 
     @FXML
-    private void OnClickOpenAddAppointment(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    private void OnClickOpenEditAppointment(ActionEvent actionEvent) {
+    private void OnClickOpenAddAppointment(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AddAppointmentForm.fxml"));
+        Stage window = (Stage) addAppointmentButton.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+        AddAppointmentFormController addAppointment = fxmlLoader.getController();
+        addAppointment.setUser(this.user);
+        window.setScene(scene);
     }
 
     @FXML
@@ -153,20 +152,48 @@ public class CustomerRecordController implements Initializable {
     }
 
     @FXML
-    private void OnClickGoToEditCustomerForm(ActionEvent actionEvent) throws IOException {
+    private void OnClickGoToEditCustomerForm(ActionEvent actionEvent) throws IOException, SQLException {
         Customer selectedCustomer = customersTable.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditCustomerForm.fxml"));
-        Stage window = (Stage) editCustomerButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
-        EditCustomerController editCustomer = fxmlLoader.getController();
-        editCustomer.setCustomer(this.customer);
-        editCustomer.setUser(this.user);
-        editCustomer.loadCustomer(selectedCustomer);
-
-        //AddCustomerController addCustomer = fxmlLoader.getController();
-        //addCustomer.SetInventory(this.inventory);
-        window.setScene(scene);
+        if (selectedCustomer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Must select customer!");
+            alert.setHeaderText("No customer selected, cannot edit part!");
+            alert.setContentText("Please select customer to be edited.");
+            alert.showAndWait();
+        }
+        else {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditCustomerForm.fxml"));
+            Stage window = (Stage) editCustomerButton.getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+            EditCustomerController editCustomer = fxmlLoader.getController();
+            editCustomer.setCustomer(selectedCustomer);
+            editCustomer.loadCustomer(selectedCustomer);
+            editCustomer.setUser(this.user);
+            window.setScene(scene);
+        }
     }
+    @FXML
+    private void OnClickOpenEditAppointment(ActionEvent actionEvent)throws IOException, SQLException {
+        Appointment selectedAppointment = (Appointment) appointmentsTable.getSelectionModel().getSelectedItem();
+        if (selectedAppointment == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Must select appointment!");
+            alert.setHeaderText("No appointment selected, cannot edit!");
+            alert.setContentText("Please select appointment to be edited.");
+            alert.showAndWait();
+        }
+        else {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditAppointmentForm.fxml"));
+            Stage window = (Stage) editAppointmentButton.getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+            EditAppointmentFormController editAppointment = fxmlLoader.getController();
+            editAppointment.setAppointment(selectedAppointment);
+            editAppointment.loadAppointment(selectedAppointment);
+            editAppointment.setUser(this.user);
+            window.setScene(scene);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

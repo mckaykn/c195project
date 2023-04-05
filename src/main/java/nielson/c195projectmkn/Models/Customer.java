@@ -1,5 +1,7 @@
 package nielson.c195projectmkn.Models;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Customer {
@@ -8,14 +10,14 @@ public class Customer {
         private String address;
         private String postalCode;
         private String phone;
-        private LocalDateTime createDate;
+        private Timestamp createDate;
         private String createdBy;
-        private LocalDateTime lastUpdate;
+        private Timestamp lastUpdate;
         private String lastUpdatedBy;
         private Division division;
 
         public Customer(int id, String customerName, String address, String postalCode, String phone,
-                       LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy, Division division) {
+                       Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdatedBy, Division division) {
             super();
             this.id = id;
             this.customerName = customerName;
@@ -50,7 +52,7 @@ public class Customer {
             return phone;
         }
 
-        public LocalDateTime getCreateDate() {
+        public Timestamp getCreateDate() {
             return createDate;
         }
 
@@ -58,7 +60,7 @@ public class Customer {
             return createdBy;
         }
 
-        public LocalDateTime getLastUpdate() {
+        public Timestamp getLastUpdate() {
             return lastUpdate;
         }
         public String getLastUpdatedBy() {
@@ -70,5 +72,9 @@ public class Customer {
         }
         public int getDivisionID(){
             return division.getID();
+        }
+        @Override
+        public String toString(){
+            return customerName;
         }
     }

@@ -12,7 +12,6 @@
         </font>
     </Label>
     <VBox layoutX="150.0" layoutY="160.0" prefHeight="285.0" prefWidth="200.0">
-      <Label fx:id="customerIdLabel" text="not found" />
         <TextField fx:id="customerNameTextField" layoutX="10.0" layoutY="10.0" prefHeight="25.0">
             <VBox.margin>
                 <Insets top="13.0" />
@@ -28,7 +27,7 @@
                 <Insets top="10.0" />
             </VBox.margin>
         </TextField>
-        <ComboBox fx:id="customerCountryComboBox" layoutX="10.0" layoutY="212.0" prefHeight="25.0" prefWidth="100.0">
+        <ComboBox fx:id="customerCountryComboBox" layoutX="10.0" layoutY="212.0" onAction="#OnActionCountryComboBox" prefHeight="25.0" prefWidth="100.0">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin></ComboBox>
@@ -44,7 +43,6 @@
         </TextField>
     </VBox>
     <VBox layoutX="25.0" layoutY="160.0" prefHeight="250.0" prefWidth="118.0">
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="122.0" text="Customer ID:" textAlignment="RIGHT" />
         <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="20.0" prefWidth="127.0" text="Name:">
             <VBox.margin>
                 <Insets top="15.0" />

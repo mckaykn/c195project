@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Can now edit customers!" />
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Can now edit customers!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditAppointmentForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddAppointmentForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/AddAppointmentForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditCustomerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/EditCustomerForm.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +38,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/time/LocalDate.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/time/Month.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.base/java/time/format/DateTimeFormatter.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.4.1/lib/src.zip!/java.sql/java/sql/Date.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.2/javafx-fxml-17.0.2-win.jar!/javafx/fxml/FXMLLoader.class" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/Downloads/mysql-connector-java-8.0.25/mysql-connector-java-8.0.25/src/legacy/java/com/mysql/jdbc/Driver.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" root0="FORCE_HIGHLIGHTING" />
@@ -170,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680054141521</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Can now edit customers!">
+      <created>1680216616718</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680216616718</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,9 +234,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

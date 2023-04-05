@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import nielson.c195projectmkn.Main;
-import nielson.c195projectmkn.Models.Customer;
 import nielson.c195projectmkn.Models.User;
 import nielson.c195projectmkn.helper.ClientQuery;
 
@@ -23,11 +22,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class LogInFormController implements Initializable {
-
-    @FXML
-    private Label userNameLabel;
-    @FXML
-    private Label passwordLabel;
     @FXML
     private TextField userNameTextField;
     @FXML
@@ -73,8 +67,6 @@ public class LogInFormController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
         CustomerRecordController customerRecord = fxmlLoader.getController();
         customerRecord.setUser(user);
-        //LogInFormController logInForm = fxmlLoader.getController();
-        //logInForm.SetUser(this.inventory);
         window.setScene(scene);
     }
 }

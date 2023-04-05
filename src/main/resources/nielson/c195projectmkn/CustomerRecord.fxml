@@ -20,8 +20,6 @@
          <TableColumn fx:id="customerDivisionColumn" prefWidth="77.0" text="Division ID" />
         </columns>
     </TableView>
-    <TextField fx:id="customerTableSearchBar" layoutX="122.0" layoutY="77.0" onKeyTyped="#OnKeyTypedSearchForCustomerByIDorString" promptText="Search by Name or ID" />
-    <TextField fx:id="appointmentTableSearchBar" layoutX="122.0" layoutY="527.0" onKeyTyped="#OnKeyTypedSearchForAppointmentByIDorString" promptText="Search by Name or ID" />
     <Label layoutX="23.0" layoutY="80.0" prefHeight="20.0" prefWidth="72.0" text="Customers">
         <font>
             <Font size="14.0" />

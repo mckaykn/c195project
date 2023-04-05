@@ -5,17 +5,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nielson.c195projectmkn.Controllers.AddAppointmentFormController">
-    <Label layoutX="50.0" layoutY="56.0" text="Create An Appointment Below">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nielson.c195projectmkn.Controllers.EditAppointmentFormController">
+    <Label layoutX="50.0" layoutY="56.0" text="Update Appointment Below">
         <font>
             <Font name="System Bold" size="18.0" />
         </font>
     </Label>
     <VBox layoutX="150.0" layoutY="160.0" prefHeight="285.0" prefWidth="200.0">
-      <ComboBox fx:id="appointmentCustomerComboBox" layoutX="10.0" layoutY="128.0" prefHeight="25.0" prefWidth="159.0">
-         <VBox.margin>
-            <Insets top="14.0" />
-         </VBox.margin></ComboBox>
+        <ComboBox fx:id="appointmentCustomerComboBox" layoutX="10.0" layoutY="128.0" prefHeight="25.0" prefWidth="159.0">
+            <VBox.margin>
+                <Insets top="14.0" />
+            </VBox.margin></ComboBox>
         <ComboBox fx:id="appointmentContactComboBox" layoutX="10.0" layoutY="212.0" prefHeight="25.0" prefWidth="159.0">
             <VBox.margin>
                 <Insets top="10.0" />
@@ -35,29 +35,29 @@
                 <Insets top="10.0" />
             </VBox.margin>
         </TextField>
-      <TextField fx:id="appointmentTypeTextField" layoutX="10.0" layoutY="93.0" prefHeight="25.0">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </TextField>
-      <DatePicker fx:id="appointmentStartDatePicker" prefHeight="25.0" prefWidth="128.0">
-         <VBox.margin>
-            <Insets top="5.0" />
-         </VBox.margin>
-      </DatePicker>
-      <ComboBox fx:id="appointmentStartTimeComboBox" layoutX="10.0" layoutY="128.0" prefHeight="25.0" prefWidth="103.0" />
-      <DatePicker fx:id="appointmentEndDatePicker" layoutX="10.0" layoutY="188.0" prefHeight="25.0" prefWidth="128.0">
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </DatePicker>
-      <ComboBox fx:id="appointmentEndTimeComboBox" layoutX="10.0" layoutY="218.0" prefHeight="25.0" prefWidth="103.0" />
+        <TextField fx:id="appointmentTypeTextField" layoutX="10.0" layoutY="93.0" prefHeight="25.0">
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </TextField>
+        <DatePicker fx:id="appointmentStartDatePicker" prefHeight="25.0" prefWidth="128.0">
+            <VBox.margin>
+                <Insets top="5.0" />
+            </VBox.margin>
+        </DatePicker>
+        <ComboBox fx:id="appointmentStartTimeComboBox" layoutX="10.0" layoutY="128.0" prefHeight="25.0" prefWidth="103.0" />
+        <DatePicker fx:id="appointmentEndDatePicker" layoutX="10.0" layoutY="188.0" prefHeight="25.0" prefWidth="128.0">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </DatePicker>
+        <ComboBox fx:id="appointmentEndTimeComboBox" layoutX="10.0" layoutY="218.0" prefHeight="25.0" prefWidth="103.0" />
     </VBox>
     <VBox layoutX="25.0" layoutY="160.0" prefHeight="250.0" prefWidth="118.0">
-      <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="28.0" prefHeight="20.0" prefWidth="127.0" text="Customer:">
-         <VBox.margin>
-            <Insets top="18.0" />
-         </VBox.margin></Label>
+        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="28.0" prefHeight="20.0" prefWidth="127.0" text="Customer:">
+            <VBox.margin>
+                <Insets top="18.0" />
+            </VBox.margin></Label>
         <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="57.0" prefHeight="20.0" prefWidth="126.0" text="Contact:">
             <VBox.margin>
                 <Insets top="18.0" />
@@ -88,12 +88,12 @@
                 <Insets top="25.0" />
             </VBox.margin>
         </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="200.0" prefHeight="20.0" prefWidth="126.0" text="End Date, Time:">
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
-      </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="200.0" prefHeight="20.0" prefWidth="126.0" text="End Date, Time:">
+            <VBox.margin>
+                <Insets top="30.0" />
+            </VBox.margin>
+        </Label>
     </VBox>
-    <Button fx:id="createAppointmentButton" layoutX="201.0" layoutY="500.0" mnemonicParsing="false" onAction="#OnClickSaveAppointment" prefHeight="25.0" prefWidth="136.0" text="Create Appointment" />
+    <Button fx:id="updateAppointmentButton" layoutX="201.0" layoutY="500.0" mnemonicParsing="false" onAction="#OnClickUpdateAppointment" prefHeight="25.0" prefWidth="136.0" text="Update Appointment" />
     <Button fx:id="backButton" layoutX="350.0" layoutY="500.0" mnemonicParsing="false" onAction="#OnClickReturnToMain" prefHeight="25.0" prefWidth="57.0" text="Back" />
 </AnchorPane>
