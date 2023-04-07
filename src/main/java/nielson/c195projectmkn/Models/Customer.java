@@ -1,8 +1,6 @@
 package nielson.c195projectmkn.Models;
 
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class Customer {
         private int id;

@@ -1,8 +1,6 @@
 package nielson.c195projectmkn.Models;
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class Appointment {
     private int ID;
@@ -95,6 +93,10 @@ public class Appointment {
 
     public String getContactName(){
         return contact.getName();
+    }
+
+    public User getUser() {
+        return this.user;
     }
 
     public int getUserID() {

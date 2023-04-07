@@ -15,11 +15,11 @@ import nielson.c195projectmkn.helper.ClientQuery;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class AddAppointmentFormController implements Initializable {
@@ -98,7 +98,6 @@ public class AddAppointmentFormController implements Initializable {
                 };
             }
         });
-
     }
 
     @FXML
@@ -107,8 +106,10 @@ public class AddAppointmentFormController implements Initializable {
         LocalTime startTime = LocalTime.parse(appointmentStartTimeComboBox.getValue());
         LocalDate endDate = LocalDate.parse(appointmentEndDatePicker.getValue().toString());
         LocalTime endTime = LocalTime.parse(appointmentEndTimeComboBox.getValue());
+
         LocalDateTime dateTimeStart = LocalDateTime.of(startDate, startTime);
         Timestamp startTimeStamp = Timestamp.valueOf(dateTimeStart);
+
         LocalDateTime dateTimeEnd = LocalDateTime.of(endDate, endTime);
         Timestamp endTimeStamp = Timestamp.valueOf(dateTimeEnd);
 
@@ -118,10 +119,10 @@ public class AddAppointmentFormController implements Initializable {
                 appointmentTypeTextField.getText(),
                 startTimeStamp,
                 endTimeStamp,
-                appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getCreateDate(),
-                appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getCreatedBy(),
-                appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getLastUpdate(),
-                appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getLastUpdatedBy(),
+                new Timestamp(Calendar.getInstance().getTime().getTime()),
+                user.getName(),
+                new Timestamp(Calendar.getInstance().getTime().getTime()),
+                user.getName(),
                 appointmentCustomerComboBox.getSelectionModel().getSelectedItem(),
                 user,
                 appointmentContactComboBox.getSelectionModel().getSelectedItem());
@@ -130,6 +131,8 @@ public class AddAppointmentFormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) createAppointmentButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 

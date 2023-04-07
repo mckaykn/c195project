@@ -73,6 +73,8 @@ public class EditCustomerController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) UpdateCustomerButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
 
     }
@@ -82,8 +84,8 @@ public class EditCustomerController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
-        //MainController main = fxmlLoader.getController();
-        //main.SetInventory(inventory);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 

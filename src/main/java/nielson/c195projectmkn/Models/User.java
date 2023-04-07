@@ -64,13 +64,6 @@ public class User {
     }
 
     /**
-     * Creates a new User object with default values.
-     */
-    public User() {
-
-    }
-
-    /**
      * Gets the ID of the user.
      *
      * @return the ID of the user.

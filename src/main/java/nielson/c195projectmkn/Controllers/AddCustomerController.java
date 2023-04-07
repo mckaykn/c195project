@@ -87,7 +87,6 @@ public class AddCustomerController implements Initializable {
         Calendar calendar = Calendar.getInstance();
         java.util.Date currentDate = calendar.getTime();
         currentDateTime = new Timestamp(currentDate.getTime());
-
         newCustomer = new Customer(0, customerNameTextField.getText(), customerAddressTextField.getText(),
                 customerPostalCodeTextField.getText(), customerPhoneTextField.getText(), currentDateTime,
                  user.getName(), currentDateTime, user.getName(), customerDivisionComboBox.getSelectionModel().getSelectedItem());
@@ -96,6 +95,8 @@ public class AddCustomerController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) CreateCustomerButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 
@@ -104,8 +105,8 @@ public class AddCustomerController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
-        //MainController main = fxmlLoader.getController();
-        //main.SetInventory(inventory);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 

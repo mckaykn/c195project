@@ -8,13 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import nielson.c195projectmkn.Main;
 import nielson.c195projectmkn.Models.Appointment;
 import nielson.c195projectmkn.Models.Customer;
-import nielson.c195projectmkn.Models.Division;
 import nielson.c195projectmkn.Models.User;
 import nielson.c195projectmkn.helper.ClientQuery;
 import nielson.c195projectmkn.helper.GuiUtils;
@@ -24,7 +22,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ResourceBundle;
 
 public class CustomerRecordController implements Initializable {
@@ -102,23 +102,64 @@ public class CustomerRecordController implements Initializable {
     private TableColumn customerLastUpdatedByColumn;
     private ObservableList<Customer> customers;
     private ObservableList<Appointment> appointments;
+
+    private ObservableList<Appointment> appointments15Minutes;
     private Customer customer;
     private User user;
-
-
     @FXML
-    private void OnKeyTypedSearchForCustomerByIDorString(KeyEvent keyEvent) {
-    }
-
+    private RadioButton MonthRadioButton;
+    @FXML
+    private RadioButton WeekRadioButton;
+    @FXML
+    private RadioButton allRadioButton;
 
     @FXML
     private int OnClickDeleteCustomerBySelection(ActionEvent actionEvent) throws SQLException {
         Customer selectedCustomer = customersTable.getSelectionModel().getSelectedItem();
-        customers.remove(selectedCustomer);
-        String sql = "DELETE FROM customers WHERE Customer_ID = ?";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setInt(1, selectedCustomer.getId());
-        return ps.executeUpdate();
+        if (selectedCustomer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Must select customer!");
+            alert.setHeaderText("No customer selected, cannot delete customer!");
+            alert.setContentText("Please select customer to be deleted.");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Customer?!");
+            alert.setHeaderText("Are you sure you want to remove this customer?");
+            alert.setContentText("Removing this customer will also remove all associated Appointments!");
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                String Asql = "DELETE FROM appointments WHERE Customer_ID = ?";
+                PreparedStatement ps = JDBC.connection.prepareStatement(Asql);
+                ps.setInt(1, selectedCustomer.getId());
+                ps.executeUpdate();
+                String Csql = "DELETE FROM customers WHERE Customer_ID = ?";
+                PreparedStatement psC = JDBC.connection.prepareStatement(Csql);
+                psC.setInt(1, selectedCustomer.getId());
+                psC.executeUpdate();
+                customers.remove(selectedCustomer);
+                appointments = ClientQuery.getAllAppointments();
+                idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+                titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+                locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+                typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+                startColumn.setCellValueFactory(new PropertyValueFactory<>("start"));
+                endColumn.setCellValueFactory(new PropertyValueFactory<>("end"));
+                createDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+                createdByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+                lastUpdateColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
+                appointmentsCustomerIdColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+                appointmentsUserIdColumn.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+                appointmentsContactIdColumn.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
+                appointmentsTable.setItems(appointments);
+                GuiUtils.autoResizeColumns(appointmentsTable);
+                Alert confirmation = new Alert(Alert.AlertType.INFORMATION);
+                confirmation.setTitle("Customer Record has been deleted!");
+                confirmation.setHeaderText("Customer has successfully been deleted!");
+                confirmation.showAndWait();
+            }
+        }
+        return 0;
     }
 
     @FXML
@@ -132,7 +173,17 @@ public class CustomerRecordController implements Initializable {
     }
 
     @FXML
-    private void OnClickDeleteAppointment(ActionEvent actionEvent) {
+    private int OnClickDeleteAppointment(ActionEvent actionEvent) throws SQLException {
+        Appointment selectedAppointment = (Appointment) appointmentsTable.getSelectionModel().getSelectedItem();
+        appointments.remove(selectedAppointment);
+        String sql = "DELETE FROM appointments WHERE Appointment_ID = ?";
+        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ps.setInt(1, selectedAppointment.getID());
+        Alert confirmation = new Alert(Alert.AlertType.INFORMATION);
+        confirmation.setTitle("Appointment ID:" + selectedAppointment.getID() + " has been cancelled.");
+        confirmation.setHeaderText("Type:" + selectedAppointment.getType() + " has been cancelled");
+        return ps.executeUpdate();
+
     }
 
     @FXML
@@ -147,7 +198,6 @@ public class CustomerRecordController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         AddCustomerController addCustomer = fxmlLoader.getController();
         addCustomer.setUser(this.user);
-        addCustomer.setCustomer(this.customer);
         window.setScene(scene);
     }
 
@@ -236,5 +286,73 @@ public class CustomerRecordController implements Initializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @FXML
+    private void OnClickOrganizeAppointmentsByWeek(ActionEvent actionEvent) throws SQLException {
+        appointments = ClientQuery.getAllAppointmentsByWeek();
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+        startColumn.setCellValueFactory(new PropertyValueFactory<>("start"));
+        endColumn.setCellValueFactory(new PropertyValueFactory<>("end"));
+        createDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+        createdByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+        lastUpdateColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
+        appointmentsCustomerIdColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        appointmentsUserIdColumn.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        appointmentsContactIdColumn.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
+        appointmentsTable.setItems(appointments);
+        GuiUtils.autoResizeColumns(appointmentsTable);
+
+    }
+
+    @FXML
+    private void OnClickOrganizeAppointmentsByMonth(ActionEvent actionEvent) throws SQLException {
+        appointments = ClientQuery.getAllAppointmentsByMonth();
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+        startColumn.setCellValueFactory(new PropertyValueFactory<>("start"));
+        endColumn.setCellValueFactory(new PropertyValueFactory<>("end"));
+        createDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+        createdByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+        lastUpdateColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
+        appointmentsCustomerIdColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        appointmentsUserIdColumn.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        appointmentsContactIdColumn.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
+        appointmentsTable.setItems(appointments);
+        GuiUtils.autoResizeColumns(appointmentsTable);
+    }
+
+    @FXML
+    private void OnClickShowAllAppointments(ActionEvent actionEvent) throws SQLException {
+        appointments = ClientQuery.getAllAppointments();
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+        startColumn.setCellValueFactory(new PropertyValueFactory<>("start"));
+        endColumn.setCellValueFactory(new PropertyValueFactory<>("end"));
+        createDateColumn.setCellValueFactory(new PropertyValueFactory<>("createDate"));
+        createdByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));
+        lastUpdateColumn.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
+        appointmentsCustomerIdColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
+        appointmentsUserIdColumn.setCellValueFactory(new PropertyValueFactory<>("UserID"));
+        appointmentsContactIdColumn.setCellValueFactory(new PropertyValueFactory<>("ContactID"));
+        appointmentsTable.setItems(appointments);
+        GuiUtils.autoResizeColumns(appointmentsTable);
+    }
+
+    public void checkForAppointmentsWithin15Minutes() throws SQLException {
+        appointments15Minutes = ClientQuery.getAppointmentsWithin15Minutes();
+        if (appointments15Minutes.size() > 0) {
+            Alert appointmentSoon = new Alert(Alert.AlertType.INFORMATION);
+            appointmentSoon.setTitle("There is an upcoming appointment!");
+            appointmentSoon.setHeaderText("An appointment will occur within 15 minutes!");
+            appointmentSoon.showAndWait();
+        }
     }
 }

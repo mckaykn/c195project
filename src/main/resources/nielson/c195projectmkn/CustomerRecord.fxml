@@ -54,7 +54,7 @@
              <Insets right="45.0" />
          </HBox.margin>
         </Button>
-        <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#OnClickDeleteAppointment" prefHeight="25.0" prefWidth="148.0" text="Delete Appointment">
+        <Button fx:id="deleteAppointmentButton" mnemonicParsing="false" onAction="#OnClickDeleteAppointment" prefHeight="25.0" prefWidth="148.0" text="Cancel Appointment">
          <HBox.margin>
              <Insets right="10.0" />
          </HBox.margin>
@@ -84,4 +84,12 @@
     </TableView>
     <Label fx:id="noCustomerFoundLabel" layoutX="175.0" layoutY="123.0" />
     <Label fx:id="noAppointmentFoundLabel" layoutX="685.0" layoutY="123.0" />
+   <RadioButton fx:id="MonthRadioButton" layoutX="158.0" layoutY="522.0" mnemonicParsing="false" onAction="#OnClickOrganizeAppointmentsByMonth" text="Month">
+      <toggleGroup>
+         <ToggleGroup fx:id="OrganizeType" />
+      </toggleGroup>
+   </RadioButton>
+   <RadioButton fx:id="WeekRadioButton" layoutX="225.0" layoutY="522.0" mnemonicParsing="false" onAction="#OnClickOrganizeAppointmentsByWeek" text="Week" toggleGroup="$OrganizeType" />
+   <Label layoutX="153.0" layoutY="500.0" text="Organize Appointments By:" />
+   <RadioButton fx:id="allRadioButton" layoutX="287.0" layoutY="522.0" mnemonicParsing="false" onAction="#OnClickShowAllAppointments" text="All" toggleGroup="$OrganizeType" />
 </Pane>

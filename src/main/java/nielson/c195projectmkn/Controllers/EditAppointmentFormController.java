@@ -54,10 +54,10 @@ public class EditAppointmentFormController  implements Initializable {
     private static final String[] HOUR_OPTIONS = {"00:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00",
             "06:00:00", "07:00:00", "08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00",
             "18:00:00", "19:00:00", "20:00:00", "21:00:00", "22:00:00", "23:00:00"};
-    private User user;
     private Appointment appointment;
     @FXML
     private Button updateAppointmentButton;
+    private User user;
 
 
     @FXML
@@ -93,15 +93,18 @@ public class EditAppointmentFormController  implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) updateAppointmentButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
-
 
     @FXML
     private void OnClickReturnToMain(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
     public void setUser(User user){
