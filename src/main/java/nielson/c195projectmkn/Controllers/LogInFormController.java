@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import nielson.c195projectmkn.Main;
 import nielson.c195projectmkn.Models.User;
 import nielson.c195projectmkn.helper.ClientQuery;
+import nielson.c195projectmkn.helper.UserActivityLogger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,9 +55,12 @@ public class LogInFormController implements Initializable {
     private void OnClickLogIn(ActionEvent actionEvent) throws SQLException, IOException {
         String userName = userNameTextField.getText();
         String password = passWordTextField.getText();
+
+
         user = ClientQuery.getUser(userName);
         if (user != null){
             if (Objects.equals(password, user.getPassword())){
+                UserActivityLogger.logActivity(userName, true);
                 if (Locale.getDefault() == Locale.ENGLISH) {
                     System.out.println("Log In Successful!");
                 }
@@ -67,6 +71,7 @@ public class LogInFormController implements Initializable {
             }
             else {
                 if (Locale.getDefault() == Locale.ENGLISH) {
+                    UserActivityLogger.logActivity(userName, false);
                     LogInErrorDisplayLabel.setText("Username or Password was not recognized!");
                     System.out.println("Log in Not Successful!");
                 }

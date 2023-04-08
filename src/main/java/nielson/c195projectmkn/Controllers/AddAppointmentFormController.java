@@ -1,5 +1,6 @@
 package nielson.c195projectmkn.Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.time.*;
 import java.util.Calendar;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class AddAppointmentFormController implements Initializable {
@@ -100,6 +102,9 @@ public class AddAppointmentFormController implements Initializable {
         });
     }
 
+    public static boolean checkOverlap(Timestamp startTs1, Timestamp endTs1, Timestamp startTs2, Timestamp endTs2) {
+        return (startTs1.getTime() < endTs2.getTime()) && (endTs1.getTime() > startTs2.getTime());
+    }
     @FXML
     private void OnClickSaveAppointment(ActionEvent actionEvent) throws IOException, SQLException, ParseException {
         LocalDate startDate = LocalDate.parse(appointmentStartDatePicker.getValue().toString());
@@ -112,7 +117,29 @@ public class AddAppointmentFormController implements Initializable {
 
         LocalDateTime dateTimeEnd = LocalDateTime.of(endDate, endTime);
         Timestamp endTimeStamp = Timestamp.valueOf(dateTimeEnd);
-
+        int startValue = Integer.parseInt(appointmentStartTimeComboBox.getValue().substring(0, 2));
+        int endValue = Integer.parseInt(appointmentEndTimeComboBox.getValue().substring(0, 2));
+        if ((startValue > 22 || startValue < 8) && (endValue > 22 || endValue <= 8)) {
+            Alert wrongTimeAlert = new Alert(Alert.AlertType.WARNING);
+            wrongTimeAlert.setTitle("Invalid Time selected!");
+            wrongTimeAlert.setHeaderText("Only allowed to select times between 8:00AM and 10:00PM!");
+            wrongTimeAlert.setContentText("Please change start or end time!");
+            wrongTimeAlert.showAndWait();
+            return;
+        }
+        ObservableList<Appointment> appointmentsForCurrentCustomer = ClientQuery.getAllAppointmentsForCustomerByID(appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getId());
+        boolean isOverlap = false;
+        for (Appointment appointment : appointmentsForCurrentCustomer) {
+            isOverlap = checkOverlap(appointment.getStart(), appointment.getEnd(), startTimeStamp, endTimeStamp);
+        }
+        if (isOverlap) {
+            Alert wrongTimeAlert = new Alert(Alert.AlertType.WARNING);
+            wrongTimeAlert.setTitle("Invalid Time selected!");
+            wrongTimeAlert.setHeaderText("Appointment is overlapping with another!");
+            wrongTimeAlert.setContentText("Please change your appointment time to not overlap!");
+            wrongTimeAlert.showAndWait();
+            return;
+        }
         newAppointment = new Appointment(0, appointmentTitleTextField.getText(),
                 appointmentDescriptionTextField.getText(),
                 appointmentLocationTextField.getText(),
@@ -141,6 +168,8 @@ public class AddAppointmentFormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        CustomerRecordController customerRecordController = fxmlLoader.getController();
+        customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 }

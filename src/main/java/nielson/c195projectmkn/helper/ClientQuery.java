@@ -452,4 +452,34 @@ public abstract class ClientQuery {
         return list;
     }
 
+    public static ObservableList<Appointment> getAllAppointmentsForCustomerByID(int customerID) throws SQLException {
+        String sql = "SELECT * FROM appointments WHERE Customer_ID = ?";
+        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ps.setInt(1, customerID);
+        ResultSet rs = ps.executeQuery();
+        ObservableList<Appointment> list = FXCollections.observableArrayList();
+        while (rs.next()) {
+            int id = rs.getInt("Appointment_ID");
+            String title = rs.getString("Title");
+            String description = rs.getString("Description");
+            String location = rs.getString("Location");
+            String type = rs.getString("Type");
+            Timestamp start = UTCtoLocalTimestamp(rs.getTimestamp("Start"));
+            Timestamp end = UTCtoLocalTimestamp(rs.getTimestamp("End"));
+            Timestamp createDate = UTCtoLocalTimestamp(rs.getTimestamp("Create_Date"));
+            String createdBy = rs.getString("Created_By");
+            Timestamp lastUpdate = UTCtoLocalTimestamp(rs.getTimestamp("Last_Update"));
+            String lastUpdateBy = rs.getString("Last_Updated_By");
+            int customerId = rs.getInt("Customer_ID");
+            Customer customer = getCustomerByID(customerId);
+            int userID = rs.getInt("User_ID");
+            User user = getUserByID(userID);
+            int contactID = rs.getInt("Contact_ID");
+            Contact contact = getContactByID(contactID);
+            Appointment appointment = new Appointment(id, title, description, location, type, start, end, createDate,
+                    createdBy, lastUpdate, lastUpdateBy, customer, user, contact);
+            list.add(appointment);
+        }
+        return list;
+    }
 }

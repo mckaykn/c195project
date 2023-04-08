@@ -112,6 +112,8 @@ public class CustomerRecordController implements Initializable {
     private RadioButton WeekRadioButton;
     @FXML
     private RadioButton allRadioButton;
+    @FXML
+    private Button goToReportsButton;
 
     @FXML
     private int OnClickDeleteCustomerBySelection(ActionEvent actionEvent) throws SQLException {
@@ -354,5 +356,13 @@ public class CustomerRecordController implements Initializable {
             appointmentSoon.setHeaderText("An appointment will occur within 15 minutes!");
             appointmentSoon.showAndWait();
         }
+    }
+
+    @FXML
+    private void OnClickOpenReportsForm(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReportsForm.fxml"));
+        Stage window = (Stage) goToReportsButton.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        window.setScene(scene);
     }
 }

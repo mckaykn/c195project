@@ -92,4 +92,5 @@
    <RadioButton fx:id="WeekRadioButton" layoutX="225.0" layoutY="522.0" mnemonicParsing="false" onAction="#OnClickOrganizeAppointmentsByWeek" text="Week" toggleGroup="$OrganizeType" />
    <Label layoutX="153.0" layoutY="500.0" text="Organize Appointments By:" />
    <RadioButton fx:id="allRadioButton" layoutX="287.0" layoutY="522.0" mnemonicParsing="false" onAction="#OnClickShowAllAppointments" text="All" toggleGroup="$OrganizeType" />
+   <Button fx:id="goToReportsButton" layoutX="278.0" layoutY="944.0" mnemonicParsing="false" onAction="#OnClickOpenReportsForm" prefHeight="25.0" prefWidth="131.0" text="View Reports" />
 </Pane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nielson.c195projectmkn.Controllers.ReportsFormController">
+   <children>
+      <SplitPane dividerPositions="0.20135363790186125" layoutY="6.0" orientation="VERTICAL" prefHeight="600" prefWidth="800.0">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="798.0">
+                <Label fx:id="totalNumberLabel" layoutX="482.0" layoutY="24.0" prefHeight="27.0" prefWidth="149.0">
+                    <font>
+                      <Font size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="reportsMonthComboBox" layoutX="200.0" layoutY="25.0" prefHeight="25.0" prefWidth="87.0" promptText="Month" />
+                <ComboBox fx:id="reportsTypeComboBox" layoutX="300.0" layoutY="25.0" prefHeight="25.0" prefWidth="87.0" promptText="Type" />
+                <Button fx:id="totalAppointmentsButton" layoutX="399.0" layoutY="25.0" mnemonicParsing="false" onAction="#OnClickShowTotalAppointments" prefHeight="25.0" prefWidth="73.0" text="Calculate:" />
+                <Button fx:id="backButton" layoutX="714.0" layoutY="27.0" mnemonicParsing="false" onAction="#OnClickReturnToMain" text="Back" />
+                <ComboBox fx:id="contactsComboBox" layoutY="92.0" onAction="#OnContactSelectPopulateTableView" prefHeight="25.0" prefWidth="112.0" promptText="Contact" />
+                <Label layoutX="122.0" layoutY="98.0" prefHeight="17.0" prefWidth="253.0" text="Select Contact to view upcoming appointments" />
+               <Label layoutX="200.0" layoutY="59.0" prefHeight="17.0" prefWidth="274.0" text="Select Month and Type to view total Appointments" />
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <TableView fx:id="contactTableView" prefHeight="465.0" prefWidth="399.0">
+                  <columns>
+                      <TableColumn fx:id="idColumn" prefWidth="26.0" text="ID" />
+                      <TableColumn fx:id="titleColumn" prefWidth="38.0" text="Title" />
+                      <TableColumn fx:id="typeColumn" prefWidth="35.0" text="Type" />
+                      <TableColumn fx:id="descriptionColumn" minWidth="0.0" text="Description" />
+                      <TableColumn fx:id="startColumn" prefWidth="34.0" text="Start" />
+                      <TableColumn fx:id="endColumn" prefWidth="35.0" text="End" />
+                      <TableColumn fx:id="customerIDColumn" prefWidth="79.0" text="Customer ID" />
+                  </columns>
+                </TableView>
+               <PieChart fx:id="contactPieChart" layoutX="399.0" layoutY="118.0" prefHeight="303.0" prefWidth="399.0" title="Appointments Per Contact" />
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

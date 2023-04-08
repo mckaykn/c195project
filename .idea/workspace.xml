@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Edit Appointment created. Fully working.">
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Month.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/UserActivityLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/ReportsForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
     </list>
@@ -67,7 +65,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/mckay/IdeaProjects/c195projectmkn/src/main/resources/nielson/c195projectmkn&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/mckay/IdeaProjects/c195projectmkn/src/main/java/nielson/c195projectmkn&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mckay/IdeaProjects/c195projectmkn&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -210,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680663477477</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features.">
+      <created>1680844646210</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680844646210</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,7 +240,8 @@
     <MESSAGE value="Now properly adds and deletes Customers to the customerTable and to the sql JDBC." />
     <MESSAGE value="Can now edit customers!" />
     <MESSAGE value="Edit Appointment created. Fully working." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Appointment created. Fully working." />
+    <MESSAGE value="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -255,6 +261,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java</url>
           <line>325</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
