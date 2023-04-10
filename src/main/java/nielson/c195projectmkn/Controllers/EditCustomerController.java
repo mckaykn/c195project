@@ -20,6 +20,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * This class includes all the functionalites of editing customers within the program.
+ */
+
 public class EditCustomerController implements Initializable {
     @FXML
     private TextField customerNameTextField;
@@ -72,7 +77,7 @@ public class EditCustomerController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) UpdateCustomerButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);
@@ -83,7 +88,7 @@ public class EditCustomerController implements Initializable {
     private void OnClickReturnToMain(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);

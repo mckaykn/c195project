@@ -27,6 +27,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * This class represents the AddCustomer functionalities of the program.
+ */
 public class AddCustomerController implements Initializable {
     @FXML
     private TextField customerNameTextField;
@@ -94,7 +98,7 @@ public class AddCustomerController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) CreateCustomerButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);
@@ -104,12 +108,19 @@ public class AddCustomerController implements Initializable {
     private void OnClickReturnToMain(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);
     }
 
+    /**
+     * This method allows for the filling of the Division to correctly populate with the selected Country area.
+     * lambda is used to continually refill and fill the division combo box quickly allowing me to more aptly
+     * send data.
+     * @param actionEvent
+     * @throws SQLException
+     */
     @FXML
     private void OnActionCountryComboBox(ActionEvent actionEvent) throws SQLException {
         customerDivisionComboBox.setCellFactory(new Callback<ListView<Division>, ListCell<Division>>() {

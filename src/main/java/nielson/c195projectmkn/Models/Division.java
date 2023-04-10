@@ -2,7 +2,7 @@ package nielson.c195projectmkn.Models;
 
 import java.util.Date;
 /**
-
+ @author mckaykn
  The Division class represents a division in a company, with information about its ID, name, creation date, creator, last update date,
 
  last updater and the country to which it belongs.

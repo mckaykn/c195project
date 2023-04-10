@@ -3,7 +3,12 @@ package nielson.c195projectmkn.helper;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+/**
+@author mckaykn
+ The JDBC class provides methods for establishing a connection to a MySQL database and closing the connection.
 
+ This class contains constant variables for constructing the JDBC URL and for the database credentials.
+ */
 public abstract class JDBC {
 
     private static final String protocol = "jdbc";
@@ -15,7 +20,10 @@ public abstract class JDBC {
     private static final String userName = "sqlUser";
     private static final String password = "Passw0rd!";
     public static Connection connection;
+    /**
 
+     Opens a connection to the MySQL database using the JDBC driver.
+     */
     public static void openConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -26,7 +34,10 @@ public abstract class JDBC {
             System.out.println("Error: " + e.getMessage());
         }
     }
+    /**
 
+     Closes the connection to the MySQL database.
+     */
     public static void closeConnection(){
         try {
            connection.close();

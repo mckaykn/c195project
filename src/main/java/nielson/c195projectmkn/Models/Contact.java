@@ -1,7 +1,7 @@
 package nielson.c195projectmkn.Models;
 
 /**
-
+@author mckaykn
  The Contact class represents a person's contact information.
  It contains a contact ID, name, and email.
  */

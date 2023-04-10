@@ -2,7 +2,7 @@ package nielson.c195projectmkn.Models;
 
 import java.sql.Timestamp;
 /**
-
+@author mckaykn
  The Customer class represents a customer, including its unique identifier, name, address,
  postal code, phone number, creation date, creator, last update date, last updater, and division.
  */

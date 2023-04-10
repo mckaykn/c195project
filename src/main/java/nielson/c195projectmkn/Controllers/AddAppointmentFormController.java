@@ -24,6 +24,10 @@ import java.util.Calendar;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * This class represents the AddAppointment functionalities of the program.
+ */
 public class AddAppointmentFormController implements Initializable {
     @FXML
     private TextField appointmentTitleTextField;
@@ -157,7 +161,7 @@ public class AddAppointmentFormController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) createAppointmentButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);
@@ -167,7 +171,7 @@ public class AddAppointmentFormController implements Initializable {
     private void OnClickReturnToMain(ActionEvent actionEvent)throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);

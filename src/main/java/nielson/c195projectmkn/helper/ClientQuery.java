@@ -6,69 +6,22 @@ import nielson.c195projectmkn.Models.*;
 
 import java.sql.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.temporal.TemporalAdjusters;
-import java.util.TimeZone;
 
+/**
+ * @author mckaykn
+ * The ClientQuery Class represents the primary helper class for my controllers to use. It includes all
+ * JDBC type methods.
+ */
 
 public abstract class ClientQuery {
+    /**
 
-    public static int insert(String fruitName, int colorId) throws SQLException {
-        String sql = "INSERT INTO FRUITS (Fruit_Name, Color_ID) VALUES(?, ?)";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setString(1, fruitName);
-        ps.setInt(2, colorId);
-        int rowsAffected = ps.executeUpdate();
-        return rowsAffected;
-    }
-
-    public static int update(int fruitId, String fruitName) throws SQLException {
-        String sql = "UPDATE FRUITS SET Fruit_Name = ? WHERE Fruit_ID = ?";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setString(1, fruitName);
-        ps.setInt(2, fruitId);
-        int rowsAffected = ps.executeUpdate();
-        return rowsAffected;
-    }
-
-    public static int delete(int fruitId) throws SQLException {
-        String sql = "DELETE FROM FRUITS WHERE Fruit_ID = ?";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setInt(1, fruitId);
-        int rowsAffected = ps.executeUpdate();
-        return rowsAffected;
-    }
-
-    public static void select() throws SQLException {
-        String sql = "SELECT * FROM APPOINTMENTS";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            int AppointmentID = rs.getInt("Appointment_ID");
-            String AppointmentType = rs.getString("Type");
-            System.out.print(AppointmentID + "|");
-            System.out.print(AppointmentType + "\n");
-        }
-
-    }
-
-    public static void select(int colorId) throws SQLException {
-        String sql = "SELECT * FROM FRUITS WHERE Color_ID = ?";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setInt(1, colorId);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            int fruitId = rs.getInt("Fruit_ID");
-            String fruitName = rs.getString("Fruit_Name");
-            int colorIdFK = rs.getInt("Color_ID");
-            System.out.print(fruitId + " | ");
-            System.out.print(fruitName + " |");
-            System.out.print(colorIdFK + "\n");
-        }
-
-    }
-
+     Retrieves all customers from the database and returns them as an observable list.
+     @throws SQLException if a database access error occurs
+     @return an ObservableList containing all the customers retrieved from the database
+     */
     public static ObservableList<Customer> getAllCustomers() throws SQLException {
         String sql = "SELECT * FROM customers";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
@@ -91,7 +44,59 @@ public abstract class ClientQuery {
         }
         return list;
     }
+    /**
 
+     Retrieves all Contacts from the database and returns them as an observable list.
+     @throws SQLException if a database access error occurs
+     @return an ObservableList containing all the contacts retrieved from the database
+     */
+    public static ObservableList<Contact> getAllContacts() throws SQLException {
+        String sql = "SELECT * FROM contacts";
+        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        ObservableList<Contact> list = FXCollections.observableArrayList();
+        while (rs.next()) {
+            int id = rs.getInt("Contact_ID");
+            String name = rs.getString("Contact_Name");
+            String email = rs.getString("Email");
+            Contact contact = new Contact(id, name, email);
+            list.add(contact);
+        }
+        return list;
+    }
+    /**
+
+     Retrieves all Divisions from the database and returns them as an ObservableList.
+     @throws SQLException if a database access error occurs
+     @return an ObservableList of all Division objects retrieved from the database
+     */
+    public static ObservableList<Division> getAllDivisions() throws SQLException {
+        ObservableList<Division> divisions = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM first_level_divisions";
+        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("Division_ID");
+            String name = rs.getString("Division");
+            Date createDate = rs.getDate("Create_Date");
+            String createdBy = rs.getString("Created_By");
+            Date lastUpdate = rs.getDate("Last_Update");
+            String lastUpdateBy = rs.getString("Last_Updated_By");
+            int countryId = rs.getInt("Country_ID");
+            Country country = getCountryById(countryId);
+            Division division = new Division(id, name, createDate, createdBy, lastUpdate, lastUpdateBy, country);
+            divisions.add(division);
+        }
+        return divisions;
+
+    }
+
+    /**
+
+     Retrieves all appointments from the database and returns them as an observable list.
+     @throws SQLException if a database access error occurs
+     @return an ObservableList containing all the appointments retrieved from the database
+     */
     public static ObservableList<Appointment> getAllAppointments() throws SQLException {
         String sql = "SELECT * FROM appointments";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
@@ -121,7 +126,12 @@ public abstract class ClientQuery {
         }
         return list;
     }
-
+    /**
+    Retrieves a Contact from the database with the given contact ID and returns it.
+    @param contactID the ID of the contact to retrieve from the database
+    @throws SQLException if a database access error occurs
+    @return the Contact object retrieved from the database with the specified ID, or null if no such contact exists
+    */
     public static Contact getContactByID(int contactID) throws SQLException {
         Contact contact = null;
         String sql = "SELECT * FROM contacts WHERE Contact_ID = ?";
@@ -138,7 +148,12 @@ public abstract class ClientQuery {
         }
         return contact;
     }
-
+    /**
+    Retrieves a User from the database with the given User ID and returns it.
+    @param userID the ID of the contact to retrieve from the database
+    @throws SQLException if a database access error occurs
+    @return the User object retrieved from the database with the specified ID, or null if no such contact exists
+    */
     public static User getUserByID(int userID) throws SQLException {
         User user = null;
         String sql = "SELECT * FROM users WHERE User_ID = ?";
@@ -159,7 +174,12 @@ public abstract class ClientQuery {
         }
         return user;
     }
-
+    /**
+    Retrieves a Customer from the database with the given Customer ID and returns it.
+    @param customerID the ID of the contact to retrieve from the database
+    @throws SQLException if a database access error occurs
+    @return the Customer object retrieved from the database with the specified ID, or null if no such contact exists
+    */
     private static Customer getCustomerByID(int customerID) throws SQLException {
         Customer customer = null;
         String sql = "SELECT * FROM customers WHERE Customer_ID = ?";
@@ -184,7 +204,12 @@ public abstract class ClientQuery {
         }
         return customer;
     }
-
+    /**
+     Retrieves a Division from the database with the given Division ID and returns it.
+     @param divisionId the ID of the contact to retrieve from the database
+     @throws SQLException if a database access error occurs
+     @return the Division object retrieved from the database with the specified ID, or null if no such contact exists
+     */
     public static Division getDivisionById(int divisionId) throws SQLException {
         Division division = null;
         String sql = "SELECT * FROM first_level_divisions WHERE Division_ID = ?";
@@ -204,7 +229,12 @@ public abstract class ClientQuery {
         }
         return division;
     }
-
+    /**
+     Retrieves a Country from the database with the given country ID and returns it.
+     @param countryId the ID of the contact to retrieve from the database
+     @throws SQLException if a database access error occurs
+     @return the Country object retrieved from the database with the specified ID, or null if no such contact exists
+     */
     public static Country getCountryById(int countryId) throws SQLException {
         Country country = null;
         String sql = "SELECT * FROM countries WHERE Country_ID = ?";
@@ -222,7 +252,13 @@ public abstract class ClientQuery {
         }
         return country;
     }
+    /**
 
+     Retrieves a User from the database with the given username and returns it.
+     @param userName the username of the user to retrieve from the database
+     @throws SQLException if a database access error occurs
+     @return the User object retrieved from the database with the specified username, or null if no such user exists
+     */
     public static User getUser(String userName) throws SQLException {
         User user = null;
         String sql = "SELECT * FROM users WHERE User_Name = ?";
@@ -242,27 +278,12 @@ public abstract class ClientQuery {
         return user;
     }
 
-    public static ObservableList<Division> getAllDivisions() throws SQLException {
-        ObservableList<Division> divisions = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM first_level_divisions";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            int id = rs.getInt("Division_ID");
-            String name = rs.getString("Division");
-            Date createDate = rs.getDate("Create_Date");
-            String createdBy = rs.getString("Created_By");
-            Date lastUpdate = rs.getDate("Last_Update");
-            String lastUpdateBy = rs.getString("Last_Updated_By");
-            int countryId = rs.getInt("Country_ID");
-            Country country = getCountryById(countryId);
-            Division division = new Division(id, name, createDate, createdBy, lastUpdate, lastUpdateBy, country);
-            divisions.add(division);
-        }
-        return divisions;
+    /**
 
-    }
-
+     Retrieves all Countries from the database and returns them as an ObservableList.
+     @throws SQLException if a database access error occurs
+     @return an ObservableList of all Country objects retrieved from the database
+     */
     public static ObservableList<Country> getAllCountries() throws SQLException {
         ObservableList<Country> countries = FXCollections.observableArrayList();
         String sql = "SELECT * FROM countries";
@@ -280,7 +301,12 @@ public abstract class ClientQuery {
         }
         return countries;
     }
+    /**
 
+     Inserts a new customer into the database.
+     @param newCustomer the customer object to be saved.
+     @throws SQLException if there is an error executing the SQL statement.
+     */
     public static void SaveCustomer(Customer newCustomer) throws SQLException {
         String sql = "INSERT INTO customers (Customer_Name, Address, Postal_Code, Phone, Create_Date, Created_By, " +
                 "Last_Update, Last_Updated_By, Division_ID) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -296,23 +322,12 @@ public abstract class ClientQuery {
         ps.setInt(9, newCustomer.getDivisionID());
         ps.executeUpdate();
     }
+    /**
 
-    public static Timestamp timestampToUTC(Timestamp timestamp) {
-        LocalDateTime localDateTime = timestamp.toLocalDateTime();
-
-        ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneOffset.systemDefault()).withZoneSameInstant(ZoneOffset.UTC);
-
-        return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
-    }
-
-    public static Timestamp UTCtoLocalTimestamp(Timestamp timestamp) {
-        LocalDateTime localDateTime = timestamp.toLocalDateTime();
-
-        ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault());
-
-        return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
-    }
-
+     Inserts a new appointmnet into the database.
+     @param newAppointment the customer object to be saved.
+     @throws SQLException if there is an error executing the SQL statement.
+     */
     public static void SaveAppointment(Appointment newAppointment) throws SQLException, ParseException {
         String sql = "INSERT INTO appointments (Title, Description, Location, Type," +
                 "Start, End, Create_Date, Created_By, Last_Update, Last_Updated_By, Customer_ID, User_ID, Contact_ID)" +
@@ -335,21 +350,38 @@ public abstract class ClientQuery {
         ps.executeUpdate();
     }
 
-    public static ObservableList<Contact> getAllContacts() throws SQLException {
-        String sql = "SELECT * FROM contacts";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ResultSet rs = ps.executeQuery();
-        ObservableList<Contact> list = FXCollections.observableArrayList();
-        while (rs.next()) {
-            int id = rs.getInt("Contact_ID");
-            String name = rs.getString("Contact_Name");
-            String email = rs.getString("Email");
-            Contact contact = new Contact(id, name, email);
-            list.add(contact);
-        }
-        return list;
-    }
+    /**
 
+     Converts a given timestamp to UTC format.
+     @param timestamp the timestamp to be converted
+     @return the converted timestamp in UTC format
+     */
+    public static Timestamp timestampToUTC(Timestamp timestamp) {
+        LocalDateTime localDateTime = timestamp.toLocalDateTime();
+
+        ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneOffset.systemDefault()).withZoneSameInstant(ZoneOffset.UTC);
+
+        return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
+    }
+    /**
+
+     Converts a given UTC to timestamp format.
+     @param timestamp the UTC to be converted
+     @return the converted timestamp in local format
+     */
+    public static Timestamp UTCtoLocalTimestamp(Timestamp timestamp) {
+        LocalDateTime localDateTime = timestamp.toLocalDateTime();
+
+        ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault());
+
+        return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
+    }
+    /**
+
+     This method retrieves all appointments scheduled for the current week, defined as the time between the previous Sunday and the upcoming Saturday.
+     @return an ObservableList of Appointment objects that fall within the current week
+     @throws SQLException if there is an error executing the SQL query
+     */
     public static ObservableList<Appointment> getAllAppointmentsByWeek() throws SQLException {
         LocalDate today = LocalDate.now();
         LocalDate startOfWeek = today.with(TemporalAdjusters.previousOrSame(DayOfWeek.SUNDAY));
@@ -384,6 +416,12 @@ public abstract class ClientQuery {
         }
         return list;
     }
+    /**
+
+     This method retrieves all appointments scheduled for the current month, defined as the time between the first day of month and the last day of month.
+     @return an ObservableList of Appointment objects that fall within the current month
+     @throws SQLException if there is an error executing the SQL query
+     */
 
     public static ObservableList<Appointment> getAllAppointmentsByMonth() throws SQLException {
         LocalDate today = LocalDate.now();
@@ -420,7 +458,12 @@ public abstract class ClientQuery {
         }
         return list;
     }
+    /**
 
+     Returns a list of appointments scheduled to start within the next 15 minutes from the current time.
+     @return An ObservableList of Appointment objects representing appointments scheduled to start within the next 15 minutes.
+     @throws SQLException if there is an error executing the SQL query.
+     */
     public static ObservableList<Appointment> getAppointmentsWithin15Minutes() throws SQLException {
         String sql = "SELECT * FROM appointments\n" +
                 "WHERE Start BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 15 MINUTE);";
@@ -438,37 +481,6 @@ public abstract class ClientQuery {
             Timestamp createDate = rs.getTimestamp("Create_Date");
             String createdBy = rs.getString("Created_By");
             Timestamp lastUpdate = rs.getTimestamp("Last_Update");
-            String lastUpdateBy = rs.getString("Last_Updated_By");
-            int customerId = rs.getInt("Customer_ID");
-            Customer customer = getCustomerByID(customerId);
-            int userID = rs.getInt("User_ID");
-            User user = getUserByID(userID);
-            int contactID = rs.getInt("Contact_ID");
-            Contact contact = getContactByID(contactID);
-            Appointment appointment = new Appointment(id, title, description, location, type, start, end, createDate,
-                    createdBy, lastUpdate, lastUpdateBy, customer, user, contact);
-            list.add(appointment);
-        }
-        return list;
-    }
-
-    public static ObservableList<Appointment> getAllAppointmentsForCustomerByID(int customerID) throws SQLException {
-        String sql = "SELECT * FROM appointments WHERE Customer_ID = ?";
-        PreparedStatement ps = JDBC.connection.prepareStatement(sql);
-        ps.setInt(1, customerID);
-        ResultSet rs = ps.executeQuery();
-        ObservableList<Appointment> list = FXCollections.observableArrayList();
-        while (rs.next()) {
-            int id = rs.getInt("Appointment_ID");
-            String title = rs.getString("Title");
-            String description = rs.getString("Description");
-            String location = rs.getString("Location");
-            String type = rs.getString("Type");
-            Timestamp start = UTCtoLocalTimestamp(rs.getTimestamp("Start"));
-            Timestamp end = UTCtoLocalTimestamp(rs.getTimestamp("End"));
-            Timestamp createDate = UTCtoLocalTimestamp(rs.getTimestamp("Create_Date"));
-            String createdBy = rs.getString("Created_By");
-            Timestamp lastUpdate = UTCtoLocalTimestamp(rs.getTimestamp("Last_Update"));
             String lastUpdateBy = rs.getString("Last_Updated_By");
             int customerId = rs.getInt("Customer_ID");
             Customer customer = getCustomerByID(customerId);

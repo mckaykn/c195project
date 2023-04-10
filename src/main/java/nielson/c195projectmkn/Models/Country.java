@@ -2,6 +2,10 @@ package nielson.c195projectmkn.Models;
 
 import java.util.Date;
 
+/**
+ * @author mckaykn
+ * This class represents a Country using ID, name, createDate, createdBy, lastUpdate, and lastUpdatedBy
+ */
 public class Country {
     private int ID;
     private String name;

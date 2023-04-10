@@ -24,6 +24,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
 
+/**
+ * This class includes all the reports needed in the program. Including the 3f criteria of adding another report.
+ */
+
 public class ReportsFormController implements Initializable {
     @FXML
     private Label totalNumberLabel;
@@ -78,7 +82,13 @@ public class ReportsFormController implements Initializable {
         return result;
     }
 
-
+    /**
+     * This functions runs on load and populates the form with all three reports. The contactPieChart is filled using lambda to iterate
+     * over my list of contacts and my list of appointments to assign size to each pie chart slice. This lambda saves me from manually
+     * iterating over each list.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         reportsMonthComboBox.getItems().setAll(months);
@@ -114,7 +124,7 @@ public class ReportsFormController implements Initializable {
                                                                 .stream()
                                                                 .filter(appointment -> isTimestampInMonth(appointment.getStart(), reportsMonthComboBox.getSelectionModel().getSelectedItem().getId()) && Objects.equals(appointment.getType(), reportsTypeComboBox.getSelectionModel().getSelectedItem()))
                                                                 .toList();
-        totalNumberLabel.setText(String.valueOf(appointmentList.size()) + " Appointments");
+        totalNumberLabel.setText(String.valueOf(appointmentList.size()) + " Appointment(s)");
     }
 
     @FXML
@@ -126,7 +136,7 @@ public class ReportsFormController implements Initializable {
     private void OnClickReturnToMain(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         window.setScene(scene);
     }
 

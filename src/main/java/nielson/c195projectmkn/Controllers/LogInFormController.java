@@ -23,6 +23,10 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * This class represents the User log in page functionalities.
+ */
 public class LogInFormController implements Initializable {
     @FXML
     private TextField userNameTextField;
@@ -96,7 +100,7 @@ public class LogInFormController implements Initializable {
     private void OpenCustomerRecord() throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) logInButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecord = fxmlLoader.getController();
         customerRecord.setUser(this.user);
         customerRecord.checkForAppointmentsWithin15Minutes();

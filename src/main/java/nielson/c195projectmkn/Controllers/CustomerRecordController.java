@@ -27,6 +27,10 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * this controller acts as the primary platform to see customers, and their associated appointments.
+ */
 public class CustomerRecordController implements Initializable {
     @FXML
     private Pane CustomerRecordPane;
@@ -114,6 +118,8 @@ public class CustomerRecordController implements Initializable {
     private RadioButton allRadioButton;
     @FXML
     private Button goToReportsButton;
+    @FXML
+    private Button logOutButton;
 
     @FXML
     private int OnClickDeleteCustomerBySelection(ActionEvent actionEvent) throws SQLException {
@@ -364,5 +370,14 @@ public class CustomerRecordController implements Initializable {
         Stage window = (Stage) goToReportsButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         window.setScene(scene);
+    }
+
+    @FXML
+    private void OnClickLogOut(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogInForm.fxml"));
+        Stage window = (Stage) goToReportsButton.getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 300, 250);
+        window.setScene(scene);
+
     }
 }

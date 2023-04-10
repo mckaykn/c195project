@@ -2,40 +2,17 @@ package nielson.c195projectmkn.Models;
 
 import java.util.Date;
 
+/**
+ * @author mckaykn
+ * This class represents a user by ID, name, password, createDate, CreatedBy, lastUpdate, and lastUpdatedBy
+ */
 public class User {
-    /**
-     * The ID of the user.
-     */
     private int ID;
-
-    /**
-     * The name of the user.
-     */
     private String name;
-
-    /**
-     * The password of the user.
-     */
     private String password;
-
-    /**
-     * The date the user was created.
-     */
     private Date createDate;
-
-    /**
-     * The creator of the user.
-     */
     private String createdBy;
-
-    /**
-     * The date the user was last updated.
-     */
     private Date lastUpdate;
-
-    /**
-     * The user who last updated the user.
-     */
     private String lastUpdatedBy;
 
     /**

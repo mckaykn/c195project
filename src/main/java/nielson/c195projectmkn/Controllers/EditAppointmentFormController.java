@@ -28,6 +28,10 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+/**
+ * @author mckaykn
+ * This class represents the Appointment editing functions of the program.
+ */
 public class EditAppointmentFormController  implements Initializable {
     @FXML
     private TextField appointmentTitleTextField;
@@ -118,7 +122,7 @@ public class EditAppointmentFormController  implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) updateAppointmentButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);
@@ -128,7 +132,7 @@ public class EditAppointmentFormController  implements Initializable {
     private void OnClickReturnToMain(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
         CustomerRecordController customerRecordController = fxmlLoader.getController();
         customerRecordController.setUser(this.user);
         window.setScene(scene);

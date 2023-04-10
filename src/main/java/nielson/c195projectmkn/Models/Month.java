@@ -1,7 +1,7 @@
 package nielson.c195projectmkn.Models;
 
 /**
-
+ @author mckaykn
  The Month class represents a calendar month.
  */
 public class Month {
