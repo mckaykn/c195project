@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer.">
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="added all javadoc.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_activity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/login_activity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Division.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Month.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/JDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +69,7 @@
       <recent name="nielson.c195projectmkn.Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mckay\IdeaProjects\c195projectmkn\src\main\java\nielson\c195projectmkn" />
       <recent name="C:\Users\mckay\IdeaProjects\c195projectmkn\src\main\java\nielson\c195projectmkn\Controllers" />
     </key>
   </component>
@@ -251,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681108151011</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added all javadoc.">
+      <created>1681169661438</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1681169661438</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,17 +270,13 @@
     <MESSAGE value="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features." />
     <MESSAGE value="Almost completed with the app. Created a way to view reports, Created a logintracker." />
     <MESSAGE value="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer." />
+    <MESSAGE value="F" />
+    <MESSAGE value="added all javadoc." />
+    <option name="LAST_COMMIT_MESSAGE" value="added all javadoc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java</url>
-          <line>39</line>
-          <properties field="customerIdColumn" class="nielson.c195projectmkn.Controllers.CustomerRecordController" />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java</url>
           <line>121</line>
