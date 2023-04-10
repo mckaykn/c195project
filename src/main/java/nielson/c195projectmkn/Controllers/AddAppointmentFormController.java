@@ -127,9 +127,9 @@ public class AddAppointmentFormController implements Initializable {
             wrongTimeAlert.showAndWait();
             return;
         }
-        ObservableList<Appointment> appointmentsForCurrentCustomer = ClientQuery.getAllAppointmentsForCustomerByID(appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getId());
+        ObservableList<Appointment> allAppointments = ClientQuery.getAllAppointments();
         boolean isOverlap = false;
-        for (Appointment appointment : appointmentsForCurrentCustomer) {
+        for (Appointment appointment : allAppointments) {
             isOverlap = checkOverlap(appointment.getStart(), appointment.getEnd(), startTimeStamp, endTimeStamp);
         }
         if (isOverlap) {

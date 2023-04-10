@@ -1,5 +1,6 @@
 package nielson.c195projectmkn.Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,7 +60,9 @@ public class EditAppointmentFormController  implements Initializable {
     private Button updateAppointmentButton;
     private User user;
 
-
+    public static boolean checkOverlap(Timestamp startTs1, Timestamp endTs1, Timestamp startTs2, Timestamp endTs2) {
+        return (startTs1.getTime() < endTs2.getTime()) && (endTs1.getTime() > startTs2.getTime());
+    }
     @FXML
     private void OnClickUpdateAppointment(ActionEvent actionEvent) throws SQLException, IOException {
 
@@ -71,6 +74,29 @@ public class EditAppointmentFormController  implements Initializable {
         Timestamp startTimeStamp = Timestamp.valueOf(dateTimeStart);
         LocalDateTime dateTimeEnd = LocalDateTime.of(endDate, endTime);
         Timestamp endTimeStamp = Timestamp.valueOf(dateTimeEnd);
+        int startValue = Integer.parseInt(appointmentStartTimeComboBox.getValue().substring(0, 2));
+        int endValue = Integer.parseInt(appointmentEndTimeComboBox.getValue().substring(0, 2));
+        if ((startValue > 22 || startValue < 8) && (endValue > 22 || endValue <= 8)) {
+            Alert wrongTimeAlert = new Alert(Alert.AlertType.WARNING);
+            wrongTimeAlert.setTitle("Invalid Time selected!");
+            wrongTimeAlert.setHeaderText("Only allowed to select times between 8:00AM and 10:00PM!");
+            wrongTimeAlert.setContentText("Please change start or end time!");
+            wrongTimeAlert.showAndWait();
+            return;
+        }
+        ObservableList<Appointment> appointmentsForCurrentCustomer = ClientQuery.getAllAppointmentsForCustomerByID(appointmentCustomerComboBox.getSelectionModel().getSelectedItem().getId());
+        boolean isOverlap = false;
+        for (Appointment appointment : appointmentsForCurrentCustomer) {
+            isOverlap = checkOverlap(appointment.getStart(), appointment.getEnd(), startTimeStamp, endTimeStamp);
+        }
+        if (isOverlap) {
+            Alert wrongTimeAlert = new Alert(Alert.AlertType.WARNING);
+            wrongTimeAlert.setTitle("Invalid Time selected!");
+            wrongTimeAlert.setHeaderText("Appointment is overlapping with another!");
+            wrongTimeAlert.setContentText("Please change your appointment time to not overlap!");
+            wrongTimeAlert.showAndWait();
+            return;
+        }
 
         String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Create_Date = ?, Created_By = ?, Last_Update = ?, Last_Updated_By = ?, Customer_ID = ?, User_ID = ?, Contact_ID = ? WHERE Appointment_ID = ?";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
