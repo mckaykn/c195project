@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Month.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/UserActivityLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/ReportsForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/CustomerRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/LogInFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Models/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nielson/c195projectmkn/CustomerRecord.fxml" afterDir="false" />
+    <list default="true" id="47ddc4d0-eea9-4cfa-a32d-233ce2d2089b" name="Changes" comment="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/EditAppointmentFormController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +205,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680844646210</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Almost completed with the app. Created a way to view reports, Created a logintracker.">
+      <created>1680936277566</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680936277566</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Almost completed with the app. Created a way to view reports, Created a logintracker.">
+      <created>1680936291717</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680936291717</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer.">
+      <created>1681108004684</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1681108004684</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +252,9 @@
     <MESSAGE value="Can now edit customers!" />
     <MESSAGE value="Edit Appointment created. Fully working." />
     <MESSAGE value="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue regarding the user not following forms. Created 15 minute warning. Created Time zone switching to properly show. A few more features." />
+    <MESSAGE value="Almost completed with the app. Created a way to view reports, Created a logintracker." />
+    <MESSAGE value="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote some javadoc. Fixed editAppointment and addAppointment so they catch all overlapping appointments, not just for the same customer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -261,11 +274,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/helper/ClientQuery.java</url>
           <line>325</line>
           <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/AddAppointmentFormController.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/nielson/c195projectmkn/Controllers/ReportsFormController.java</url>
