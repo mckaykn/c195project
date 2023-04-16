@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author mckaykn
+ * This class provides resource to write the login_activity.txt file when a successful or failed log in attempt occurs.
+ */
 public class UserActivityLogger {
 
     public static void logActivity(String username, boolean success) {

@@ -157,7 +157,7 @@ public class EditAppointmentFormController  implements Initializable {
         }
     }
     public void loadAppointment(Appointment selectedAppointment) throws SQLException {
-        //Set Start-Date DatePicker to correct Value and set TimeComboBox to correct Value
+        //Set Start-Date DatePicker to correct Value and set StartTimeComboBox to correct Value
         LocalDateTime localStartDateTime = selectedAppointment.getStart().toLocalDateTime();
         int startYear = localStartDateTime.getYear();
         Month startMonthLetters = localStartDateTime.getMonth();
@@ -172,13 +172,13 @@ public class EditAppointmentFormController  implements Initializable {
         }
         if (startMonthInt < 10) {
             String startDate = (startYear + "/0" + startMonthInt + "/" + startDayOfMonthNew);
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
             LocalDate localDateStart = LocalDate.parse(startDate, dtf);
             appointmentStartDatePicker.setValue(localDateStart);
         }
         else {
             String startDate = (startYear + "/" + startMonthInt + "/" + startDayOfMonthNew);
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
             LocalDate localDateStart = LocalDate.parse(startDate, dtf);
             appointmentStartDatePicker.setValue(localDateStart);
         }
@@ -206,13 +206,13 @@ public class EditAppointmentFormController  implements Initializable {
         int endMonthInt = endMonthLetters.getValue();
         if (endMonthInt < 10) {
             String endDate = (endYear + "/0" + endMonthInt + "/" + endDayOfMonthNew);
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
             LocalDate localDateEnd = LocalDate.parse(endDate, dtf);
             appointmentEndDatePicker.setValue(localDateEnd);
         }
         else {
             String endDate = (endYear + "/" + endMonthInt + "/" + endDayOfMonthNew);
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
             LocalDate localDateEnd = LocalDate.parse(endDate, dtf);
             appointmentEndDatePicker.setValue(localDateEnd);
         }
@@ -227,7 +227,6 @@ public class EditAppointmentFormController  implements Initializable {
             appointmentEndTimeComboBox.getSelectionModel().select(endTime);
 
         }
-
         appointmentTitleTextField.setText(selectedAppointment.getTitle());
         appointmentDescriptionTextField.setText(selectedAppointment.getDescription());
         appointmentLocationTextField.setText(selectedAppointment.getLocation());

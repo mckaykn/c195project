@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 /**
  * @author mckaykn
+ *
  * The appointment class represents customers appointments made, using ID, title, descriptions, location, type,
  * start time, end time, create date, who the appointment was created by, when it was last updated, who was it last
  * updated by, customer, user, and contact

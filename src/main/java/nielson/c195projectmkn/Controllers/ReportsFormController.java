@@ -15,6 +15,7 @@ import nielson.c195projectmkn.Main;
 import nielson.c195projectmkn.Models.Appointment;
 import nielson.c195projectmkn.Models.Contact;
 import nielson.c195projectmkn.Models.Month;
+import nielson.c195projectmkn.Models.User;
 import nielson.c195projectmkn.helper.ClientQuery;
 import nielson.c195projectmkn.helper.GuiUtils;
 
@@ -74,11 +75,12 @@ public class ReportsFormController implements Initializable {
     private TableColumn customerIDColumn;
     @FXML
     private PieChart contactPieChart;
+    private User user;
 
     public static boolean isTimestampInMonth(Timestamp timestamp, int month) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(timestamp);
-        boolean result = cal.get(Calendar.MONTH) == month;
+        boolean result = cal.get(Calendar.MONTH) == month - 1;
         return result;
     }
 
@@ -112,6 +114,11 @@ public class ReportsFormController implements Initializable {
         contactPieChart.setData(pieChartData);
     }
 
+    /**
+     * Functions as a filter to stream both Month ComboBox and Type ComboBox together to find appointments with the same appointmentID. Lambda is
+     * used to make this process much faster and simpler.
+     * @throws SQLException
+     */
     private void calculateTotalReports() throws SQLException {
         if (reportsMonthComboBox.getSelectionModel().getSelectedItem() == null) {
             return;
@@ -124,7 +131,7 @@ public class ReportsFormController implements Initializable {
                                                                 .stream()
                                                                 .filter(appointment -> isTimestampInMonth(appointment.getStart(), reportsMonthComboBox.getSelectionModel().getSelectedItem().getId()) && Objects.equals(appointment.getType(), reportsTypeComboBox.getSelectionModel().getSelectedItem()))
                                                                 .toList();
-        totalNumberLabel.setText(String.valueOf(appointmentList.size()) + " Appointment(s)");
+        totalNumberLabel.setText(appointmentList.size() + " Appointment(s)");
     }
 
     @FXML
@@ -137,9 +144,17 @@ public class ReportsFormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CustomerRecord.fxml"));
         Stage window = (Stage) backButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 1100, 1000);
+        CustomerRecordController customerRecord = fxmlLoader.getController();
+        customerRecord.setUser(this.user);
         window.setScene(scene);
     }
 
+    /**
+     * This Lambda is grabbing ID from one list of objects and comparing it to a whole separate list of objects that
+     * contain an ID.
+     * @param actionEvent
+     * @throws SQLException
+     */
     @FXML
     private void OnContactSelectPopulateTableView(ActionEvent actionEvent) throws SQLException {
         ObservableList<Appointment> appointments = ClientQuery.getAllAppointments();
@@ -156,5 +171,9 @@ public class ReportsFormController implements Initializable {
         customerIDColumn.setCellValueFactory(new PropertyValueFactory<>("CustomerID"));
         contactTableView.setItems(FXCollections.observableArrayList(appointmentList));
         GuiUtils.autoResizeColumns(contactTableView);
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"nielson.c195projectmkn","l":"nielson.c195projectmkn"},{"m":"nielson.c195projectmkn","l":"nielson.c195projectmkn.Controllers"},{"m":"nielson.c195projectmkn","l":"nielson.c195projectmkn.helper"},{"m":"nielson.c195projectmkn","l":"nielson.c195projectmkn.Models"}];updateSearchResults();

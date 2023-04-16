@@ -6,8 +6,11 @@ import nielson.c195projectmkn.Models.*;
 
 import java.sql.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
 
 /**
  * @author mckaykn
@@ -324,7 +327,7 @@ public abstract class ClientQuery {
     }
     /**
 
-     Inserts a new appointmnet into the database.
+     Inserts a new appointment into the database.
      @param newAppointment the customer object to be saved.
      @throws SQLException if there is an error executing the SQL statement.
      */
@@ -358,9 +361,9 @@ public abstract class ClientQuery {
      */
     public static Timestamp timestampToUTC(Timestamp timestamp) {
         LocalDateTime localDateTime = timestamp.toLocalDateTime();
+        //LocalDateTime localToUTCDateTime =  localDateTime.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
 
         ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneOffset.systemDefault()).withZoneSameInstant(ZoneOffset.UTC);
-
         return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
     }
     /**
@@ -371,9 +374,8 @@ public abstract class ClientQuery {
      */
     public static Timestamp UTCtoLocalTimestamp(Timestamp timestamp) {
         LocalDateTime localDateTime = timestamp.toLocalDateTime();
-
+        //LocalDateTime utcToLocalDateTime = localDateTime.atOffset(ZoneOffset.UTC).toLocalDateTime();
         ZonedDateTime utcStartDateTime = localDateTime.atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.systemDefault());
-
         return Timestamp.valueOf(utcStartDateTime.toLocalDateTime());
     }
     /**
@@ -465,9 +467,24 @@ public abstract class ClientQuery {
      @throws SQLException if there is an error executing the SQL query.
      */
     public static ObservableList<Appointment> getAppointmentsWithin15Minutes() throws SQLException {
-        String sql = "SELECT * FROM appointments\n" +
-                "WHERE Start BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 15 MINUTE);";
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date currentDate = calendar.getTime();
+        Timestamp currentDateTime = new Timestamp(currentDate.getTime());
+        Timestamp currentDateTimeUTC = timestampToUTC(currentDateTime);
+
+        calendar.add(Calendar.MINUTE, 15);
+        java.util.Date currentDate1 = calendar.getTime();
+        Timestamp currentDateTime1 = new Timestamp(currentDate1.getTime());
+        Timestamp currentDateTimeUTCPlus15 = timestampToUTC(currentDateTime1);
+        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+
+
+
+        String sql = "SELECT * FROM appointments WHERE Start BETWEEN ? AND ?";
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
+        ps.setTimestamp(1, currentDateTimeUTC);
+        ps.setTimestamp(2, currentDateTimeUTCPlus15);
         ObservableList<Appointment> list = FXCollections.observableArrayList();
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

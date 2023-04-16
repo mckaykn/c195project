@@ -123,7 +123,7 @@ public class AddAppointmentFormController implements Initializable {
         Timestamp endTimeStamp = Timestamp.valueOf(dateTimeEnd);
         int startValue = Integer.parseInt(appointmentStartTimeComboBox.getValue().substring(0, 2));
         int endValue = Integer.parseInt(appointmentEndTimeComboBox.getValue().substring(0, 2));
-        if ((startValue > 22 || startValue < 8) && (endValue > 22 || endValue <= 8)) {
+        if ((startValue > 22 || startValue < 8) || (endValue > 22 || endValue <= 8)) {
             Alert wrongTimeAlert = new Alert(Alert.AlertType.WARNING);
             wrongTimeAlert.setTitle("Invalid Time selected!");
             wrongTimeAlert.setHeaderText("Only allowed to select times between 8:00AM and 10:00PM!");

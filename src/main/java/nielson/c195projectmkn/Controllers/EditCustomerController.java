@@ -109,6 +109,13 @@ public class EditCustomerController implements Initializable {
         customerDivisionComboBox.getSelectionModel().select(selectedCustomer.getDivision());
         customerPhoneTextField.setText(selectedCustomer.getPhone());
     }
+
+    /**
+     * Lambda is used in a similar fashion to the addCustomer form, populating the secondary ComboBox, saving me
+     * a lot of hassle attempting to make new methods and call them.
+     * @param actionEvent
+     * @throws SQLException
+     */
     @FXML
     private void OnActionCountryComboBox(ActionEvent actionEvent) throws SQLException {
         customerDivisionComboBox.setCellFactory(new Callback<ListView<Division>, ListCell<Division>>() {

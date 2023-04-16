@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -53,13 +54,13 @@ public class LogInFormController implements Initializable {
         }
         String countryLabel = ZoneId.systemDefault().toString();
         locationDisplayLabel.setText(countryLabel);
+
     }
 
     @FXML
     private void OnClickLogIn(ActionEvent actionEvent) throws SQLException, IOException {
         String userName = userNameTextField.getText();
         String password = passWordTextField.getText();
-
 
         user = ClientQuery.getUser(userName);
         if (user != null){
@@ -73,24 +74,24 @@ public class LogInFormController implements Initializable {
                 }
                 OpenCustomerRecord();
             }
-            else {
-                if (Locale.getDefault() == Locale.ENGLISH) {
-                    UserActivityLogger.logActivity(userName, false);
-                    LogInErrorDisplayLabel.setText("Username or Password was not recognized!");
-                    System.out.println("Log in Not Successful!");
-                }
-                if (currentLanguage == Locale.FRENCH || currentLanguage == Locale.FRANCE || currentLanguage == Locale.CANADA_FRENCH) {
-                    LogInErrorDisplayLabel.setText("Le nom d'utilisateur ou le mot de passe n'a pas été reconnu");
-                    System.out.println("Connexion échouée");
-                }
-            }
-        }
-        else {
-            if (Locale.getDefault() == Locale.ENGLISH) {
+            if (currentLanguage == Locale.ENGLISH) {
+                UserActivityLogger.logActivity(userName, false);
                 LogInErrorDisplayLabel.setText("Username or Password was not recognized!");
                 System.out.println("Log in Not Successful!");
             }
             if (currentLanguage == Locale.FRENCH || currentLanguage == Locale.FRANCE || currentLanguage == Locale.CANADA_FRENCH) {
+                LogInErrorDisplayLabel.setText("Le nom d'utilisateur ou le mot de passe n'a pas été reconnu");
+                System.out.println("Connexion échouée");
+            }
+        }
+        else {
+            if (currentLanguage == Locale.ENGLISH || currentLanguage == Locale.US) {
+                UserActivityLogger.logActivity(userName, false);
+                LogInErrorDisplayLabel.setText("Username or Password was not recognized!");
+                System.out.println("Log in Not Successful!");
+            }
+            else if (currentLanguage == Locale.FRENCH || currentLanguage == Locale.FRANCE || currentLanguage == Locale.CANADA_FRENCH) {
+                UserActivityLogger.logActivity(userName, false);
                 LogInErrorDisplayLabel.setText("Le nom d'utilisateur ou le mot de passe n'a pas été reconnu");
                 System.out.println("Connexion échouée");
             }

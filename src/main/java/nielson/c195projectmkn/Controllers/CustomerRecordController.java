@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
@@ -47,7 +48,7 @@ public class CustomerRecordController implements Initializable {
     @FXML
     private TableColumn customerPhoneColumn;
     @FXML
-    private TableColumn customerCreateDateColumn;
+    private TableColumn<Timestamp, Customer> customerCreateDateColumn;
     @FXML
     private TableColumn customerCreatedByColumn;
     @FXML
@@ -188,8 +189,9 @@ public class CustomerRecordController implements Initializable {
         PreparedStatement ps = JDBC.connection.prepareStatement(sql);
         ps.setInt(1, selectedAppointment.getID());
         Alert confirmation = new Alert(Alert.AlertType.INFORMATION);
-        confirmation.setTitle("Appointment ID:" + selectedAppointment.getID() + " has been cancelled.");
-        confirmation.setHeaderText("Type:" + selectedAppointment.getType() + " has been cancelled");
+        confirmation.setTitle("An appointment has been cancelled!");
+        confirmation.setHeaderText("ID: " + selectedAppointment.getID() + " ,Type: " + selectedAppointment.getType() + " has been cancelled.");
+        confirmation.show();
         return ps.executeUpdate();
 
     }
@@ -359,8 +361,15 @@ public class CustomerRecordController implements Initializable {
         if (appointments15Minutes.size() > 0) {
             Alert appointmentSoon = new Alert(Alert.AlertType.INFORMATION);
             appointmentSoon.setTitle("There is an upcoming appointment!");
-            appointmentSoon.setHeaderText("An appointment will occur within 15 minutes!");
+            appointmentSoon.setHeaderText("Appointment " + appointments15Minutes.get(0).getID() +
+                    " at " +ClientQuery.timestampToUTC(appointments15Minutes.get(0).getStart())+  " will occur within 15 Minutes!");
             appointmentSoon.showAndWait();
+        }
+        else {
+            Alert noAppointmentSoon = new Alert(Alert.AlertType.INFORMATION);
+            noAppointmentSoon.setTitle("No upcoming appointments");
+            noAppointmentSoon.setHeaderText("There are no upcoming appointment within 15 minutes.");
+            noAppointmentSoon.show();
         }
     }
 
@@ -369,6 +378,8 @@ public class CustomerRecordController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReportsForm.fxml"));
         Stage window = (Stage) goToReportsButton.getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        ReportsFormController reportsForm = fxmlLoader.getController();
+        reportsForm.setUser(this.user);
         window.setScene(scene);
     }
 

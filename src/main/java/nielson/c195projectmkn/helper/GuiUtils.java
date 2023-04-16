@@ -3,13 +3,17 @@ package nielson.c195projectmkn.helper;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 
+/**
+ * @author mckaykn
+ * This class is a helper that is used to resize columns automatically according to width of string.
+ */
 
 public class GuiUtils {
     public static void autoResizeColumns( TableView<?> table )
 {
     //Set the right policy
     table.setColumnResizePolicy( TableView.UNCONSTRAINED_RESIZE_POLICY);
-    table.getColumns().stream().forEach( (column) ->
+    table.getColumns().forEach( (column) ->
     {
         //Minimal width = columnheader
         Text t = new Text( column.getText() );
